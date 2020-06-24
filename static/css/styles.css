@@ -11,7 +11,7 @@
 body {
     color: #444;
     background: #1F2346;
-    font-size: 16px;
+    font-size: 15px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -485,7 +485,14 @@ pre code {
 .cheats {
     background: #FF5C00;
     color: #fff;
-    padding-top: 150px;
+    padding: 150px;
+}
+
+.cheats .title {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 30px;
+    margin-left: 5px;
 }
 
 a.orange_whiteBG_btn, .orange_whiteBG_btn {
@@ -532,7 +539,7 @@ a.orange_whiteBG_btn:hover,
     margin-bottom: 30px;
 
     display: grid;
-    grid-template-columns: 12fr 7fr 7fr 7fr 7fr 9fr;
+    grid-template-columns: 13fr 7fr 7fr 7fr 7fr 9fr;
     grid-template-rows: 50px;
 }
 
@@ -542,15 +549,42 @@ a.orange_whiteBG_btn:hover,
 
 .cheat_min_data {
     height: 100px;
-    margin: 0 auto;
 
-    border-right-width: 1px;
-    border: #ff9365;
+    display: grid;
+
+    box-shadow: 0 0 0 1px #ececec, 0 0 0 1px #ececec;
 }
 
-.grid_center{
+.grid_center.x {
+    justify-self: center;
+}
+
+.grid_center.y {
+	align-self: center;
+}
+
+.grid_center > p {
+    margin-bottom: 0px;
+}
+
+.cheatIcon {
+    background-image: url("/static/images/cheatIcon.jpg");
     height: 50px;
-    margin: 25px 0;
+    width: 50px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.cheat_name_d{
+    display: grid;
+    grid-template-columns: 80px 1fr;
+}
+
+.cheat_name_d > div > p{
+    text-align: left;
+}
+
+.description_item{
+    font-size: 17px;
 }
 
 /* Extra small devices (phones, less than 768px) */
@@ -609,7 +643,7 @@ a.orange_whiteBG_btn:hover,
         padding: 0;
     }
 
-    .announcements .card {
+    .announcements .card { /* TODO fix that */
         width: 250px;
     }
 

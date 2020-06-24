@@ -1,4 +1,4 @@
-# Ignore docs files
+# Ignore products files
 _gh_pages
 _site
 .ruby-version

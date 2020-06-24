@@ -16,6 +16,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/*
 h1,
 h2,
 h3,
@@ -26,6 +27,7 @@ h6 {
     font-weight: 700;
     color: #17baef;
 }
+*/
 
 a {
     color: #17baef;
@@ -391,6 +393,43 @@ pre code {
 .announcements .feature-list li .fa {
     margin-right: 5px;
     color: #fff;
+}
+
+.card-text {
+    font-size: 14px;
+    text-align: left;
+}
+
+.card {
+    width: 400px;
+    height: fit-content;
+    background: #1A1D3D;
+    padding: 26px;
+    border-radius: 5px;
+    margin-left: 28px;
+}
+
+.cards {
+    display: flex;
+    width: 2000px;
+}
+
+.cards li {
+    list-style-type: none;
+}
+
+.cards li div {
+    text-decoration: none;
+    display: block;
+}
+
+.cards_end {
+    position: absolute;
+    background: linear-gradient(90deg, #1F2346 0%, rgba(31, 35, 70, 0) 89.63%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    height: 280px;
+    width: 40vh;
+    right: 0;
 }
 
 /* ======= Docs Section ======= */

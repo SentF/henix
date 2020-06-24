@@ -67,7 +67,7 @@ a.btn-cta-primary,
     box-sizing: border-box;
     border-radius: 5px;
     color: #fff;
-    font-weight: 600;
+    font-weight: 200;
 }
 
 a.btn-cta-primary:hover,
@@ -82,7 +82,7 @@ a.btn-cta-secondary,
     background: #FF4D00 !important;
     border: 1px solid #FF4D00 !important;
     color: #fff !important;
-    font-weight: 600;
+    font-weight: 200;
 }
 
 a.btn-cta-secondary:hover,
@@ -97,7 +97,7 @@ a.btn-cta-secondary:hover,
 }
 
 .offset-header {
-    padding-top: 240px !important;
+    padding-top: 35vh !important;
     height: 100vh;
 }
 
@@ -127,7 +127,7 @@ pre code {
 }
 
 .header.navbar-fixed-top .main-nav .nav .nav-item a {
-    color: #666;
+
 }
 
 .header .logo {
@@ -177,18 +177,19 @@ pre code {
 
 .header .main-nav .nav .nav-item.active a {
     color: #FF4D00;
-    background: rgba(255, 77, 0, 0.62);
-    border-radius: 10px;
+    background: rgba(255, 77, 0, 0.2);
+    border-radius: 6px;
 }
 
 .header .main-nav .nav .nav-item a {
-    color: #0a7396;
+    color: #605EB7;
     -webkit-transition: none;
     -moz-transition: none;
     -ms-transition: none;
     -o-transition: none;
-    font-size: 14px;
-    padding: 15px 10px;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin-top: 15px;
 }
 
 .header .main-nav .nav .nav-item a:hover {
@@ -240,11 +241,16 @@ pre code {
     font-size: 28px;
     max-width: 680px;
     margin: 0 auto;
-    margin-bottom: 30px;
+    margin-top: 30px;
     color: #605EB7;
 }
 
+.promo .btns{
+    margin-top: 40px;
+}
+
 .promo .btns .btn {
+    margin-top: 10px;
     margin-right: 15px;
     font-size: 18px;
     padding: 8px 30px;
@@ -284,9 +290,22 @@ pre code {
     top: -5px;
 }
 
+/* ====== SvgImages ====== */
+.backgroundImage {
+    background-image: url("/static/images/background.svg");
+    background-position: 0% 10%;
+    background-size: cover;
+}
+
+.starImage{
+    background-image: url("/static/images/starIcon.svg");
+    height: 82px;
+    width: 82px;
+}
+
 /* ======= About Section ======= */
 .about {
-    padding: 80px 0;
+    padding: 50px 0;
     background: #FF4D00;
     color: #FFFFFF;
 }
@@ -684,29 +703,41 @@ pre code {
     }
 
     .offset-header {
-        padding-top: 100px !important;
+        padding-top: 10vh !important;
         height: inherit;
+    }
+
+    .promo .btns{
+        margin-top: 30px;
     }
 
     .promo .btns .btn {
         margin-right: 0;
         clear: both;
         display: block;
-        margin-bottom: 30px;
     }
 
     .promo .title {
-        font-size: 66px;
+        font-size: 40px;
     }
 
     .promo .meta {
         margin-top: 60px;
     }
 
+    .promo .intro {
+        font-size: 24px;
+    }
+
     .promo .meta li {
         float: none;
         display: block;
         margin-bottom: 5px;
+    }
+
+    .backgroundImage {
+        background-image: url("/static/images/background-mobile.svg");
+
     }
 
     .contact .author-message {

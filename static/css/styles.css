@@ -9,7 +9,6 @@
 /* Default */
 /* ======= Base ======= */
 body {
-    font-family: 'Lato', arial, sans-serif;
     color: #444;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
@@ -542,6 +541,78 @@ pre code {
 
 .footer .fa-heart {
     color: #fb866a;
+}
+
+/* ====== Cheats Section ====== */
+.cheats {
+    background: #FF5C00;
+    color: #fff;
+    padding-top: 150px;
+}
+
+a.orange_whiteBG_btn, .orange_whiteBG_btn {
+    border: 1px solid #FF5C00;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #FF5C00;
+    font-weight: 200;
+    background: #fff;
+    padding: 14px 32px;
+}
+
+a.orange_whiteBG_btn:hover,
+.orange_whiteBG_btn:hover {
+    border: 1px solid #fff;
+    background: #FF5C00;
+    color: #fff;
+}
+
+.cheats .row {
+    background: #fff;
+}
+
+.description_item {
+    color: black;
+    font-weight: 600;
+}
+
+.description_value {
+    color: #553fbe;
+}
+
+.red_status {
+    color: #FF5C00;
+}
+
+.cheat {
+    width: 100%;
+    background: white;
+
+    height: 100px;
+
+    border-radius: 5px;
+    margin-bottom: 30px;
+
+    display: grid;
+    grid-template-columns: 12fr 7fr 7fr 7fr 7fr 9fr;
+    grid-template-rows: 50px;
+}
+
+.cheat:hover {
+    box-shadow: 0 0 0 8px #FF9365, 0 0 0 8px #FF9365;
+}
+
+.cheat_min_data {
+    height: 100px;
+    margin: 0 auto;
+
+    border-right-width: 1px;
+    border: #ff9365;
+}
+
+.grid_center{
+    height: 50px;
+    margin: 25px 0;
 }
 
 /* Extra small devices (phones, less than 768px) */

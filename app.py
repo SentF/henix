@@ -8,6 +8,10 @@ app = Flask(__name__)
 def hello_world():
     return render('index.html')
 
+@app.route('/game')
+def hello_world1():
+    return render('game.html')
+
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

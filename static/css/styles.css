@@ -10,6 +10,7 @@
 /* ======= Base ======= */
 body {
     color: #444;
+    background: #1F2346;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -107,82 +108,27 @@ pre code {
 }
 
 /* ======= Header ======= */
-.header {
-    padding: 10px 0;
+.navbar {
     background: #1F2346;
     color: #fff;
     position: fixed;
     width: 100%;
-}
-
-.header.navbar-fixed-top {
-    background: #1F2346;
     z-index: 9999;
-    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.header.navbar-fixed-top .logo a {
-    color: #ffffff;
+.navbar .navbar-brand {
+    padding-bottom: 15px;
 }
 
-.header.navbar-fixed-top .main-nav .nav .nav-item a {
-
-}
-
-.header .logo {
-    margin: 0;
-    font-size: 26px;
-    padding-top: 10px;
-}
-
-.header .logo a {
-    color: #fff;
-}
-
-.header .logo a:hover {
-    text-decoration: none;
-}
-
-.header .main-nav button {
-    background: #074f66;
-    color: #fff !important;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-}
-
-.header .main-nav button:focus {
-    outline: none;
-}
-
-.header .main-nav button .icon-bar {
-    background-color: #fff;
-}
-
-.header .main-nav .navbar-collapse {
-    padding: 0;
-}
-
-.header .main-nav .nav .nav-item {
-    font-weight: normal;
-    margin-right: 30px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.header .main-nav .nav .nav-item.active a {
-    color: #FF4D00;
+.navbar .nav-item.active a {
+    color: #FF4D00 !important;
     background: rgba(255, 77, 0, 0.2);
     border-radius: 6px;
 }
 
-.header .main-nav .nav .nav-item a {
+.navbar .navbar-nav .nav-item a {
     color: #605EB7;
     -webkit-transition: none;
     -moz-transition: none;
@@ -190,47 +136,29 @@ pre code {
     -o-transition: none;
     font-size: 16px;
     padding: 5px 10px;
-    margin-top: 15px;
+    margin-left: 10px;
 }
 
-.header .main-nav .nav .nav-item a:hover {
+.navbar .navbar-nav .nav-item a:hover {
     color: #FF4D00;
     background: rgba(255, 77, 0, 0.36);
     border-radius: 10px;
 }
 
-.header .main-nav .nav .nav-item a:focus {
+.navbar .navbar-nav .nav-item a:focus {
     outline: none;
     color: #FF4D00;
     background: rgba(255, 77, 0, 0.36);
     border-radius: 10px;
 }
 
-.header .main-nav .nav .nav-item a:active {
+.navbar .navbar-toggler {
+    border: none !important;
+}
+
+.navbar .navbar-toggler, .navbar .navbar-toggler:focus {
+    border: none !important;
     outline: none;
-    color: #FF4D00;
-    background: rgba(255, 77, 0, 0.36);
-    border-radius: 10px;
-}
-
-.header .main-nav .nav .nav-item.active {
-    color: #17baef;
-}
-
-.header .main-nav .nav .nav-item.last {
-    margin-right: 0;
-}
-
-.navbar-toggle {
-    border-radius: 50% !important;
-    height: 43px !important;
-    width: auto !important;
-    background: none !important;
-    border: 1px solid #FF4D00;
-}
-
-.navbar-toggle .icon-bar {
-    background: #FF4D00 !important;
 }
 
 /* ========= Scroll bar ========= */
@@ -404,6 +332,7 @@ pre code {
     color: #ffffff;
     margin-top: 0;
     margin-bottom: 30px;
+    margin-left: 5px;
 }
 
 .card-text {
@@ -460,6 +389,10 @@ pre code {
     margin-bottom: 30px;
 }
 
+.products .cards {
+    margin-left: 170px;
+}
+
 .products .card {
     background: #24284E;
     color: #605EB7;
@@ -502,11 +435,12 @@ pre code {
     margin: 10px;
     background: #24284E;
     border-radius: 5%;
-    width: 250px;
+    height: 120px;
 }
 
 .history .cards {
-    margin-left: 30px;
+    margin-left: 190px !important;
+    margin-right: 0;
 }
 
 .history .card-title {
@@ -524,6 +458,10 @@ pre code {
 
 .history .card .card-body {
     margin-top: 0px;
+}
+
+.history .card-img-top {
+    padding-top: 20px;
 }
 
 /* ======= Footer ======= */
@@ -617,13 +555,15 @@ a.orange_whiteBG_btn:hover,
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
-    .header .main-nav button {
-        margin-right: 0;
+    .navbar-nav .nav-item {
+        padding-bottom: 10px;
+        padding-left: 0;
+        margin-left: 0;
     }
 
-    .header .main-nav .navbar-collapse {
-        padding-left: 15px;
-        padding-right: 15px;
+    .navbar-nav .nav-link {
+        padding-left: 5px !important;
+        margin-left: 0 !important;
     }
 
     .offset-header {
@@ -685,12 +625,20 @@ a.orange_whiteBG_btn:hover,
         width: calc(100% - 20px);
     }
 
-    .history .cards {
+    .products .cards {
         margin-left: 0;
+    }
+
+    .history .cards {
+        margin-left: 0 !important;
     }
 
     .history .card {
         width: calc(100% - 30px);
+    }
+
+     .history .card .col-md-3:first-child, .history .card-body {
+       width : auto;
     }
 }
 

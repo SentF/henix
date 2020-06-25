@@ -531,7 +531,7 @@ pre code {
 .cheats {
     background: #FF5C00;
     color: #fff;
-    padding: 150px;
+    padding: 120px;
 }
 
 .cheats .title {
@@ -720,8 +720,98 @@ a.orange_whiteBG_btn:hover,
     .history .card .col-md-3:first-child, .history .card-body {
         width: auto;
     }
+
+    .cheats {
+        background: #FF5C00;
+        color: #fff;
+        padding: 12px;
+    }
+
+    .cheat {
+        width: 100%;
+        background: white;
+
+        height: 516px;
+
+        border-radius: 5px;
+        margin-bottom: 50px;
+
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 116px 80px 80px 80px 80px 80px;
+    }
+
+    .cheat_min_data {
+        height: 100%;
+        display: grid;
+        box-shadow: 0 0 0 1px #ececec, 0 0 0 1px #ececec;
+    }
+
+    .description_item, .description_value{
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    .cheat_min_data > .grid_center.x {
+        justify-self: left;
+    }
+
+    .cheat_name_d > div > .description_item, .cheat_name_d > div > .description_value{
+        margin-left: 0px;
+    }
+
+    .cheat_min_data > .orange_whiteBG_btn {
+        width: 80%;
+
+        justify-self: center;
+        margin: 0 auto;
+    }
+
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+    .cheats {
+        background: #FF5C00;
+        color: #fff;
+
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 100px;
+        padding-bottom: 30px;
+    }
+
+    .container {
+        padding: 0px;
+    }
+
+    .cheat {
+        grid-template-columns: 15fr 7fr 7fr 6fr 5.5fr 7fr;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .cheats {
+        background: #FF5C00;
+        color: #fff;
+
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 100px;
+        padding-bottom: 30px;
+    }
+
+    .cheat {
+        grid-template-columns: 15fr 7fr 7fr 6fr 6fr 8fr;
+    }
+
+    .cheat_min_data > .orange_whiteBG_btn {
+        width: 80%;
+        text-align: center;
+
+        justify-self: center;
+        margin: 0 auto;
+    }
+}
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */

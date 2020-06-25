@@ -167,11 +167,13 @@ pre code {
 }
 
 ::-webkit-scrollbar-track {
-    background: #1F2346;
+    background: #32386B;
+    border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #b33600;
+    background: #FF4D00;
+    border-radius: 20px;
 }
 
 /* ======= Promo Section ======= */
@@ -564,7 +566,15 @@ a.orange_whiteBG_btn:hover,
 
     display: grid;
 
-    box-shadow: 0 0 0 1px #ececec, 0 0 0 1px #ececec;
+    border-right: 1px solid #EAEAEA;
+}
+
+.cheat_min_data:last-child {
+    height: 100px;
+
+    display: grid;
+
+    border-right: none;
 }
 
 .grid_center.x {
@@ -744,7 +754,12 @@ a.orange_whiteBG_btn:hover,
     .cheat_min_data {
         height: 100%;
         display: grid;
-        box-shadow: 0 0 0 1px #ececec, 0 0 0 1px #ececec;
+        border-right: none;
+        border-bottom: 1px solid #EAEAEA;
+    }
+
+    .cheat_min_data:last-child {
+        border-bottom: none;
     }
 
     .description_item, .description_value {

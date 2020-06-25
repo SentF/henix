@@ -389,33 +389,17 @@ pre code {
     margin-bottom: 30px;
 }
 
-.products .cards {
-    margin-left: 170px;
-}
-
 .products .card {
     background: #24284E;
     color: #605EB7;
-    border-radius: 1%;
-    margin: 10px;
-    padding: 0;
-    width: 370px;
 }
 
 .card-title {
     color: #ffffff;
 }
 
-.products .card .card-body {
-    padding: 20px;
-
-}
-
-.card-img-top {
-    width: 100%;
-    height: auto;
-    border-top-left-radius: 1%;
-    border-top-right-radius: 1%;
+.products .row > * {
+    padding: 10px;
 }
 
 /* ======= HISTORY ======= */
@@ -426,21 +410,12 @@ pre code {
 
 .history .title {
     color: #ffffff;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .history .card {
-    padding: 10px;
-    margin: 10px;
     background: #24284E;
-    border-radius: 5%;
-    height: 120px;
-}
-
-.history .cards {
-    margin-left: 190px !important;
-    margin-right: 0;
+    border-radius: 10px;
 }
 
 .history .card-title {
@@ -452,16 +427,7 @@ pre code {
 }
 
 .history img {
-    padding-top: 10px;
-    width: 50px;
-}
-
-.history .card .card-body {
-    margin-top: 0px;
-}
-
-.history .card-img-top {
-    padding-top: 20px;
+    margin: 15px;
 }
 
 /* ======= Footer ======= */
@@ -701,24 +667,12 @@ a.orange_whiteBG_btn:hover,
         background: none;
     }
 
-    .products .card {
-        width: calc(100% - 20px);
+    .history .row .no-gutters > *:first-child {
+        width: 70px;
     }
 
-    .products .cards {
-        margin-left: 0;
-    }
-
-    .history .cards {
-        margin-left: 0 !important;
-    }
-
-    .history .card {
-        width: calc(100% - 30px);
-    }
-
-    .history .card .col-md-3:first-child, .history .card-body {
-        width: auto;
+    .history .row .no-gutters > *:last-child {
+        width: fit-content;
     }
 
     .footer > .row > * {
@@ -735,7 +689,7 @@ a.orange_whiteBG_btn:hover,
     }
 
     .footer .discord {
-       margin: 0 auto 10px !important
+        margin: 0 auto 10px !important
     }
 
     .footer > .row {
@@ -793,7 +747,7 @@ a.orange_whiteBG_btn:hover,
         box-shadow: 0 0 0 1px #ececec, 0 0 0 1px #ececec;
     }
 
-    .description_item, .description_value{
+    .description_item, .description_value {
         text-align: left;
         margin-left: 20px;
     }
@@ -802,7 +756,7 @@ a.orange_whiteBG_btn:hover,
         justify-self: left;
     }
 
-    .cheat_name_d > div > .description_item, .cheat_name_d > div > .description_value{
+    .cheat_name_d > div > .description_item, .cheat_name_d > div > .description_value {
         margin-left: 0px;
     }
 
@@ -865,7 +819,16 @@ a.orange_whiteBG_btn:hover,
         justify-self: center;
         margin: 0 auto;
     }
+
+    .history .card-title {
+        font-size: 15px;
+    }
+
+    .history .card-text {
+        font-size: 10px;
+    }
 }
+
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */

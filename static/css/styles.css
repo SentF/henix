@@ -725,6 +725,7 @@ a.orange_whiteBG_btn:hover,
         background: #FF5C00;
         color: #fff;
         padding: 12px;
+        padding-top: 100px;
     }
 
     .cheat {

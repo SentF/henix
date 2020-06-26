@@ -129,24 +129,40 @@ pre code {
     border-radius: 6px;
 }
 
-.navbar .navbar-nav .nav-item a {
+.navbar .navbar-nav .nav-item > a, .navbar .form-inline .nav-item > a {
     color: #605EB7;
-    -webkit-transition: none;
-    -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none;
+    border: 10px;
     font-size: 16px;
     padding: 5px 10px;
     margin-left: 10px;
 }
 
-.navbar .navbar-nav .nav-item a:hover {
+.navbar .dropdown-menu {
+    background: #1B1E3E;
+    border-radius: 0;
+    border: none;
+}
+
+.navbar .dropdown-menu > * {
+    color: #605EB7;
+}
+
+.navbar .dropdown-menu > *:hover {
+    color: #ffffff;
+    background: none;
+}
+
+.navbar .dropdown-divider {
+    border-top: 1px solid #2B2F61;
+}
+
+.navbar .navbar-nav .nav-item > a:hover, .navbar .form-inline .nav-item > a:hover {
     color: #FF4D00;
     background: rgba(255, 77, 0, 0.36);
     border-radius: 10px;
 }
 
-.navbar .navbar-nav .nav-item a:focus {
+.navbar .navbar-nav .nav-item a:focus, .navbar .form-inline .nav-item > a:focus {
     outline: none;
     color: #FF4D00;
     background: rgba(255, 77, 0, 0.36);

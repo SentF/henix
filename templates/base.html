@@ -36,6 +36,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="/"><img src="/static/images/henix.svg" alt="Henix"></a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <img src="/static/images/menu.svg"/>
@@ -43,14 +44,26 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a class="nav-link" href="/#promo">Home</a></li>
+                <li class="nav-item {% block home %}{% endblock %}"><a class="nav-link" href="/#promo">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#announcements">Announcements</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#products">Product list</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#history">Detection history</a></li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <a class="btn btn-cta-secondary" href="">Login</a>
+                <a class="btn btn-cta-secondary" href="/login">Login</a>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="/static/images/cheatIcon.jpg" width="40px" alt=""> { login here }
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/purchases">History</a>
+                        <a class="dropdown-item" href="/purchase">Purchase</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -69,21 +82,21 @@
         <div class="col-lg-3 col-xs-6">
             <p class="sub-title">Games</p>
             <ul>
-                <li><a href="">Overwatch</a></li>
-                <li><a href="">Overwatch</a></li>
+                <li><a href="/game">Overwatch</a></li>
+                <li><a href="/game">Overwatch</a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-xs-6">
             <p class="sub-title">Navigation</p>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Not home</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/nothome">Not home</a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-xs-12 last">
             <p class="sub-title">Rules</p>
             <ul>
-                <li><a href="">Terms of Service</a></li>
+                <li><a href="/terms">Terms of Service</a></li>
             </ul>
         </div>
     </div><!--//container-->

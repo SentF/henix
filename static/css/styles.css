@@ -271,15 +271,6 @@ pre code {
     overflow-x: auto;
 }
 
-.fixed_container {
-    padding: 0px;
-    width: 900px;
-}
-
-.fixed_container > div > div > .purchase {
-    grid-template-columns: 1.25fr 3.5fr 2.7fr 3fr 2fr 2fr 1fr;
-}
-
 /* ======= About Section ======= */
 .about {
     padding-top: 50px;
@@ -794,6 +785,9 @@ a.orange_blueBG_btn:hover,
     width: 39px;
     margin-right: 0;
     margin-left: auto;
+    border: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .red_text {
@@ -984,6 +978,16 @@ a.orange_blueBG_btn:hover,
     .cheat-info .hide-on-mobile {
         display: none;
     }
+
+    .fixed_container {
+        padding: 0;
+        width: 900px;
+    }
+
+    .fixed_container > div > div > .purchase {
+        grid-template-columns: 1.25fr 3.5fr 2.7fr 3fr 2fr 2fr 1fr;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

@@ -18,6 +18,24 @@ $(document).ready(function () {
             background: '#1F2346',
         })
     });
+
+    $('#btn_buy').click(function () {
+        Swal.fire({
+            html:
+                '<p class="title_swal">Payment</p>'+
+                '<p class="text_swal"> Select payment method.</p>'+
+                '<div class="payment_methods"></div> '+
+                '<input type="email" class="form-control input_swal" id="exampleFormControlInput1" placeholder="name@example.com">'+
+                '<button onclick="pay()" class="confirm_swal">Pay</button>'
+            ,
+            showConfirmButton: false,
+            showCloseButton: false,
+            showCancelButton: false,
+            focusConfirm: false,
+            width: 331,
+            background: '#1F2346',
+        })
+    });
 });
 
 function copy() {
@@ -36,4 +54,8 @@ function copy() {
 
 function closeSwal() {
     Swal.close()
+}
+
+function pay() {
+
 }

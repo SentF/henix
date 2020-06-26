@@ -866,6 +866,50 @@ a.orange_blueBG_btn:hover,
     border: #FF5C00
 }
 
+.input_swal{
+    background: #191C3A;
+    color: white;
+}
+
+.input_swal::placeholder {
+    color: #575C8C;
+}
+
+.payment_methods{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 83px;
+}
+
+
+.payment_method{
+    background: #1A1D3D;
+}
+.payment_method:checked{
+    background: #FF5C00;
+}
+
+.payment_method > .bitcoin_icon{
+    background-image: url("/static/images/bitcoinBlue.svg");
+}
+.payment_method:checked > .bitcoin_icon{
+    background-image: url("/static/images/bitcoinWhite.svg");
+}
+
+.payment_method > .paypal_icon{
+    background-image: url("/static/images/paypalBlue.svg");
+}
+.payment_method:checked > .paypal_icon{
+    background-image: url("/static/images/paypalWhite.svg");
+}
+
+.payment_method > .credit_card_icon{
+    background-image: url("/static/images/creditCardBlue.svg");
+}
+.payment_method:checked > .credit_card_icon{
+    background-image: url("/static/images/creditCardWhite.svg");
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .navbar-nav .nav-item {

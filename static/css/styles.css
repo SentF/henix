@@ -14,6 +14,7 @@ body {
     font-size: 15px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 100%;
 }
 
 /*
@@ -264,19 +265,19 @@ pre code {
     background-image: url("/static/images/starIcon.svg");
     height: 82px;
     width: 82px;
+}
 
-    .shopping_history{
-        overflow-x: scroll;
-    }
+.shopping_history {
+    overflow-x: auto;
+}
 
-    .fixed_container{
-        padding: 0px;
-        width: 900px;
-    }
+.fixed_container {
+    padding: 0px;
+    width: 900px;
+}
 
-    .fixed_container > div > div > .purchase{
-        grid-template-columns: 1.25fr 3.5fr 2.7fr 3fr 2fr 2fr 1fr;
-    }
+.fixed_container > div > div > .purchase {
+    grid-template-columns: 1.25fr 3.5fr 2.7fr 3fr 2fr 2fr 1fr;
 }
 
 /* ======= About Section ======= */
@@ -452,6 +453,10 @@ pre code {
     vertical-align: middle;
 }
 
+.wrapper {
+    min-height: 100vh;
+}
+
 .footer .row {
     margin: 0;
     padding-right: 10px;
@@ -460,7 +465,7 @@ pre code {
 
 .footer .row .info {
     background: #171935;
-    border-top-left-radius: 5%;
+    border-top-left-radius: 10%;
 }
 
 .footer .row > * {
@@ -729,7 +734,7 @@ a.orange_blueBG_btn:hover,
 
 /* ====== Purchases Section ====== */
 
-.purchase{
+.purchase {
     display: grid;
     grid-template-columns: 1.25fr 3.5fr 3fr 3fr 3fr 3fr 2fr;
 }
@@ -753,7 +758,7 @@ a.orange_blueBG_btn:hover,
     align-self: center;
 }
 
-.purchase.val > *:first-child{
+.purchase.val > *:first-child {
     background: inherit;
     color: #FF4D00;
     text-decoration-line: underline;
@@ -771,7 +776,7 @@ a.orange_blueBG_btn:hover,
     margin-left: 6px;
 }
 
-.shopping_history_box{
+.shopping_history_box {
     background: #1A1D3D;
     border-radius: 5px;
     border: 30px solid #1A1D3D;
@@ -791,11 +796,11 @@ a.orange_blueBG_btn:hover,
     margin-left: auto;
 }
 
-.red_text{
+.red_text {
     color: #FF4141;
 }
 
-.blue_text{
+.blue_text {
     color: #605EB7;
 }
 

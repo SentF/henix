@@ -5,12 +5,18 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
+def index():
     return render('index.html')
 
+
 @app.route('/game')
-def hello_world1():
+def game():
     return render('game.html')
+
+
+@app.route('/cheat')
+def cheat():
+    return render('cheat.html')
 
 
 if __name__ == '__main__':

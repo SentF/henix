@@ -609,6 +609,106 @@ a.orange_whiteBG_btn:hover,
     font-size: 17px;
 }
 
+/* ======= Cheat info ======= */
+.cheat-info {
+    background: #FF4D00;
+    padding: 120px;
+}
+
+#images img, #images .carousel-inner {
+    border-radius: 10px;
+}
+
+.cheat-info .title {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.out {
+    color: #FFFFFF;
+    background: #FF7B42;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: fit-content;
+}
+
+.cheat-info p {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.cheat-info .btn {
+    font-weight: normal;
+}
+
+.price {
+    font-size: 18px;
+    margin-top: 7px;
+}
+
+.cheat-info .cart {
+    display: flex;
+    justify-content: center;
+}
+
+/* ======= Functions ======= */
+.functions .title {
+    color: white;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.functions .row > * {
+    margin-bottom: 20px;
+}
+
+.functions div, .functions button {
+    color: #ffffff !important
+}
+
+.functions .card {
+    background: #24284E;
+}
+
+.other_cheats{
+    background: #1A1D3D !important;
+}
+
+.other.cheat {
+    background: #24284E;
+}
+
+.other.cheat:hover {
+    box-shadow: 0 0 0 8px #313663, 0 0 0 8px #313663;
+}
+
+.other.cheat > div > div > .description_item, .other.cheat > div > div > div > .description_item { /*xD*/
+    color: #FFFFFF;
+}
+
+.other.cheat > .cheat_min_data {
+    border-right: 1px solid #313663;
+}
+
+a.orange_blueBG_btn, .orange_blueBG_btn {
+    border: 1px solid #FF5C00;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #FF5C00;
+    font-weight: 200;
+    background: transparent;
+    padding: 14px 32px;
+}
+
+a.orange_blueBG_btn:hover,
+.orange_blueBG_btn:hover {
+    border: 1px solid transparent;
+    background: #FF5C00;
+    color: #fff;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .navbar-nav .nav-item {
@@ -754,8 +854,8 @@ a.orange_whiteBG_btn:hover,
     .cheat_min_data {
         height: 100%;
         display: grid;
-        border-right: none;
-        border-bottom: 1px solid #EAEAEA;
+        border-right: none !important;
+        border-bottom: 1px solid #313663;
     }
 
     .cheat_min_data:last-child {
@@ -775,13 +875,20 @@ a.orange_whiteBG_btn:hover,
         margin-left: 0px;
     }
 
-    .cheat_min_data > .orange_whiteBG_btn {
+    .cheat_min_data > .orange_whiteBG_btn, .cheat_min_data > .orange_blueBG_btn {
         width: 80%;
 
         justify-self: center;
         margin: 0 auto;
     }
 
+    .cheat-info {
+        padding: 100px 0 0;
+    }
+
+    .cheat-info .hide-on-mobile {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

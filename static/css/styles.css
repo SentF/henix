@@ -822,6 +822,28 @@ a.orange_blueBG_btn:hover,
     color: #605EB7;
 }
 
+.copy_icon{
+    background: transparent;
+    background-image: url("/static/images/copy.svg");
+    height: 18px;
+    width: 18px;
+    margin-right: 6px;
+    margin-left: auto;
+    border: 0;
+}
+
+.fake_input{
+    background: #191C3A;
+    width: 290px;
+    height: 35px;
+    display: grid;
+    grid-template-columns: auto 24px;
+}
+
+.fake_input > * {
+    align-self: center;
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .navbar-nav .nav-item {

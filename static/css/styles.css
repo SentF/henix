@@ -844,6 +844,28 @@ a.orange_blueBG_btn:hover,
     align-self: center;
 }
 
+/* ====== Swal ======*/
+
+.title_swal{
+    font-size: 14px;
+    color: #FF5C00;
+    margin-bottom: 8px;
+}
+
+.text_swal{
+    color: #fff
+}
+
+.confirm_swal{
+    margin-top: 16px;
+    width: 286px;
+    height: 42px;
+    background: #FF5C00;
+    color: #fff;
+    border-radius: 5px;
+    border: #FF5C00
+}
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
     .navbar-nav .nav-item {

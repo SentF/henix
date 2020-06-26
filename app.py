@@ -18,6 +18,9 @@ def game():
 def cheat():
     return render('cheat.html')
 
+@app.route('/purchases')
+def hello_world3():
+    return render('purchases.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

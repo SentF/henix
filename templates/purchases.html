@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Purchases{% endblock %}
+
+{% block content %}
+    <!-- ******cheats****** -->
+    <section id="shopping_history" style="padding-top: 90px" class="shopping_history section">
+        <div class="container fixed_container" >
+            <div class="shopping_history_box">
+                <h4>Shopping History</h4>
+                <div class="purchases">
+                    <div class="purchase vars">
+                        <text>ID</text>
+                        <text>Date</text>
+                        <text>Hack</text>
+                        <text>Game</text>
+                        <text>Payment</text>
+                        <text>Status</text>
+                    </div>
+                    <div class="purchase val">
+                        <text class="orange_text">ID</text>
+                        <text>2012.04.05 13:22:54</text>
+                        <text>f0rward hack</text>
+                        <text>Apex Legends</text>
+                        <text>PayPal</text>
+                        <div>
+                            <text class="red_text">Unpaid</text>
+                            <text class="blue_text">(?)</text>
+                        </div>
+                        <button id="show_key" class="key_icon"> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

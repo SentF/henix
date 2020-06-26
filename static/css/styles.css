@@ -265,6 +265,18 @@ pre code {
     height: 82px;
     width: 82px;
 
+    .shopping_history{
+        overflow-x: scroll;
+    }
+
+    .fixed_container{
+        padding: 0px;
+        width: 900px;
+    }
+
+    .fixed_container > div > div > .purchase{
+        grid-template-columns: 1.25fr 3.5fr 2.7fr 3fr 2fr 2fr 1fr;
+    }
 }
 
 /* ======= About Section ======= */
@@ -539,7 +551,7 @@ a.orange_whiteBG_btn:hover,
     color: #553fbe;
 }
 
-.red_status {
+.delected_status {
     color: #FF5C00;
 }
 
@@ -707,6 +719,78 @@ a.orange_blueBG_btn:hover,
     border: 1px solid transparent;
     background: #FF5C00;
     color: #fff;
+}
+
+/* ====== Purchases Section ====== */
+
+.purchase{
+    display: grid;
+    grid-template-columns: 1.25fr 3.5fr 3fr 3fr 3fr 3fr 2fr;
+}
+
+.purchase.val {
+    background: #1F2346;
+    height: 39px;
+
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+    color: #fff;
+
+    font-weight: 300;
+    font-size: 16px;
+
+    display: grid;
+}
+
+.purchase.val > * {
+    align-self: center;
+}
+
+.purchase.val > *:first-child{
+    background: inherit;
+    color: #FF4D00;
+    text-decoration-line: underline;
+    text-decoration-color: #FF4D00;
+
+    margin-left: 6px;
+}
+
+.purchase.vars {
+    color: #605EB7;
+    margin-bottom: 3px;
+}
+
+.purchase.vars > *:first-child {
+    margin-left: 6px;
+}
+
+.shopping_history_box{
+    background: #1A1D3D;
+    border-radius: 5px;
+    border: 30px solid #1A1D3D;
+    border-top-width: 24px;
+}
+
+.shopping_history_box > h4 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.key_icon {
+    background-image: url("/static/images/key.svg");
+    height: 39px;
+    width: 39px;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.red_text{
+    color: #FF4141;
+}
+
+.blue_text{
+    color: #605EB7;
 }
 
 /* Extra small devices (phones, less than 768px) */

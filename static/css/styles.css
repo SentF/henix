@@ -413,7 +413,7 @@ pre code {
 }
 
 .products .row > * {
-    padding: 10px;
+    padding-bottom: 20px;
 }
 
 /* ======= HISTORY ======= */
@@ -450,6 +450,12 @@ pre code {
     color: #fff;
     height: 300px;
     vertical-align: middle;
+}
+
+.footer .row {
+    margin: 0;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .footer .row .info {
@@ -684,7 +690,7 @@ a.orange_whiteBG_btn:hover,
     background: #24284E;
 }
 
-.other_cheats{
+.other_cheats {
     background: #1A1D3D !important;
 }
 
@@ -988,6 +994,12 @@ a.orange_blueBG_btn:hover,
 
     .container {
         padding: 0px;
+    }
+
+    .footer .row {
+        margin-right: -15px;
+        margin-left: -15px;
+        padding: 0;
     }
 
     .footer .row > *:first-child > * {

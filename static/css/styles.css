@@ -129,12 +129,20 @@ pre code {
     border-radius: 6px;
 }
 
+.navbar .form-inline img {
+    border-radius: 50%;
+}
+
 .navbar .navbar-nav .nav-item > a, .navbar .form-inline .nav-item > a {
     color: #605EB7;
     border: 10px;
     font-size: 16px;
     padding: 5px 10px;
     margin-left: 10px;
+}
+
+.navbar .form-inline .nav-item > a {
+    color: white;
 }
 
 .navbar .dropdown-menu {

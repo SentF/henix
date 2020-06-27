@@ -14,21 +14,21 @@ body {
     font-size: 15px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height: 100%;
+    font-family: 'SF Pro Display';
+    font-weight: 500;
+    font-style: normal;
 }
 
-/*
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: #17baef;
+
 }
-*/
+
 
 a {
     color: #605EB7;
@@ -212,6 +212,7 @@ pre code {
     font-size: 70px;
     color: #FFFFFF;
     margin-top: 0;
+    font-weight: bold;
 }
 
 .promo .title .highlight {

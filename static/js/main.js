@@ -24,7 +24,20 @@ $(document).ready(function () {
             html:
                 '<p class="title_swal">Payment</p>'+
                 '<p class="text_swal"> Select payment method.</p>'+
-                '<div class="payment_methods"></div> '+
+                '<div class="payment_methods"> '+
+                    '<input type="radio" name="payment_methods" class="payment_methods ">'+
+                        '<p class="bitcoin_icon>"></p> '+
+                        '<p class="white_text">Bitcoin</p>'+
+                    '</input>'+
+                    '<input type="radio" name="payment_methods" class="payment_methods ">'+
+                        '<p class="paypal_icon>"></p> '+
+                        '<p class="white_text">PayPal</p>'+
+                    '</input>'+
+                    '<input type="radio" name="payment_methods" class="payment_methods ">'+
+                        '<p class="credit_card_icon>"></p> '+
+                        '<p class="white_text">Credit card</p>'+
+                    '</input>'+
+                '</div>'+
                 '<input type="email" class="form-control input_swal" id="exampleFormControlInput1" placeholder="name@example.com">'+
                 '<button onclick="pay()" class="confirm_swal">Pay</button>'
             ,

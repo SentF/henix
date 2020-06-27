@@ -823,7 +823,7 @@ a.orange_blueBG_btn:hover,
     color: #605EB7;
 }
 
-.copy_icon{
+.copy_icon {
     background: transparent;
     background-image: url("/static/images/copy.svg");
     height: 18px;
@@ -833,7 +833,7 @@ a.orange_blueBG_btn:hover,
     border: 0;
 }
 
-.fake_input{
+.fake_input {
     background: #191C3A;
     width: 290px;
     height: 35px;
@@ -847,69 +847,100 @@ a.orange_blueBG_btn:hover,
 
 /* ====== Swal ======*/
 
-.title_swal{
+.title_swal {
     font-size: 14px;
     color: #FF5C00;
     margin-bottom: 8px;
 }
 
-.text_swal{
+.text_swal {
     color: #fff
 }
 
-.confirm_swal{
+.confirm_swal {
     margin-top: 16px;
-    width: 286px;
     height: 42px;
     background: #FF5C00;
+    width: 363px;
     color: #fff;
     border-radius: 5px;
     border: #FF5C00
 }
 
-.input_swal{
+.input_swal {
+    width: 363px;
     background: #191C3A;
     color: white;
+    margin-left: 9px;
+    border: 0;
 }
 
 .input_swal::placeholder {
     color: #575C8C;
 }
 
-.payment_methods{
+.payment_methods {
+    margin-top: 16px;
+    margin-bottom: 16px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 83px;
+    width: 378px;
+}
+
+.payment_methods input {
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.payment_method {
+    height: 83px;
+    width: 111px;
+
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-image: url("/static/images/bitcoin.svg");
+}
+
+.payment_method:checked {
+
+    background-image: url("/static/images/bitcoin_selected.svg");
+}
+
+.payment_icon {
+    height: 29px;
 }
 
 
-.payment_method{
-    background: #1A1D3D;
-}
-.payment_method:checked{
-    background: #FF5C00;
+.payment_methods input + .bitcoin_method {
+    background-image: url("/static/images/bitcoin.svg");
 }
 
-.payment_method > .bitcoin_icon{
-    background-image: url("/static/images/bitcoinBlue.svg");
-}
-.payment_method:checked > .bitcoin_icon{
-    background-image: url("/static/images/bitcoinWhite.svg");
+.payment_methods input:checked + .bitcoin_method {
+    background-image: url("/static/images/bitcoin_selected.svg");
 }
 
-.payment_method > .paypal_icon{
-    background-image: url("/static/images/paypalBlue.svg");
-}
-.payment_method:checked > .paypal_icon{
-    background-image: url("/static/images/paypalWhite.svg");
+.payment_methods input + .paypal_method {
+    background-image: url("/static/images/payPal.svg");
 }
 
-.payment_method > .credit_card_icon{
-    background-image: url("/static/images/creditCardBlue.svg");
+.payment_methods input:checked + .paypal_method {
+    background-image: url("/static/images/payPal_selected.svg");
 }
-.payment_method:checked > .credit_card_icon{
-    background-image: url("/static/images/creditCardWhite.svg");
+
+.payment_methods input + .credit_card_method {
+    background-image: url("/static/images/credit_card.svg");
 }
+
+.payment_methods input:checked + .credit_card_method {
+    background-image: url("/static/images/credit_card_selected.svg");
+}
+
 
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
@@ -1101,6 +1132,34 @@ a.orange_blueBG_btn:hover,
         grid-template-columns: 1.25fr 3.5fr 2.7fr 3fr 2fr 2fr 1fr;
     }
 
+    .payment_methods {
+        width: 270px;
+        height: 66px;
+        margin-left: 6px;
+        margin-top: -8px;
+        margin-bottom: 32px;
+    }
+
+    .payment_method {
+        height: 66px;
+        width: 88px;
+
+    }
+
+    .confirm_swal {
+        height: 42px;
+        width: 270px;
+    }
+
+    .input_swal {
+        width: 270px;
+        margin-left: 6px;
+    }
+
+    .swal_updater{
+        padding: 10px !important;
+        width: 300px !important;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

@@ -108,6 +108,38 @@ pre code {
     font-size: 16px;
 }
 
+.title {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.card-title {
+    color: white;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.card-text {
+    color: #605EB7;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+}
+
+.intro {
+    color: #605EB7;
+    margin-bottom: 30px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+}
+
 /* ======= Header ======= */
 .navbar {
     background: #1F2346;
@@ -220,7 +252,7 @@ pre code {
 }
 
 .promo .intro {
-    font-size: 28px;
+    font-size: 24px;
     max-width: 680px;
     margin: 0 auto;
     margin-top: 30px;
@@ -304,18 +336,6 @@ pre code {
     color: #FFFFFF;
 }
 
-.about .title {
-    color: #FFFFFF;
-    margin-top: 0;
-    margin-bottom: 60px;
-}
-
-.about .intro {
-    max-width: 800px;
-    margin: 0 auto;
-    margin-bottom: 60px;
-}
-
 .about .item {
     position: relative;
     margin-bottom: 30px;
@@ -359,18 +379,6 @@ pre code {
     margin-left: 200px;
 }
 
-.announcements .title {
-    color: #ffffff;
-    margin-top: 0;
-    margin-bottom: 30px;
-    margin-left: 5px;
-}
-
-.card-text {
-    font-size: 14px;
-    text-align: left;
-}
-
 .announcements .card {
     width: 400px;
     height: fit-content;
@@ -410,23 +418,12 @@ pre code {
 }
 
 .products .title {
-    color: #ffffff;
-    margin-top: 0;
     margin-bottom: 10px;
-}
-
-.products .intro {
-    color: #605EB7;
-    margin-bottom: 30px;
 }
 
 .products .card {
     background: #24284E;
     color: #605EB7;
-}
-
-.card-title {
-    color: #ffffff;
 }
 
 .products .row > * {
@@ -439,22 +436,9 @@ pre code {
     background: #1F2346;
 }
 
-.history .title {
-    color: #ffffff;
-    margin-bottom: 30px;
-}
-
 .history .card {
     background: #24284E;
     border-radius: 10px;
-}
-
-.history .card-title {
-    font-size: 20px;
-}
-
-.history .card-text {
-    color: #605EB7;
 }
 
 .history img {
@@ -823,7 +807,7 @@ a.orange_blueBG_btn:hover,
     color: #605EB7;
 }
 
-.copy_icon{
+.copy_icon {
     background: transparent;
     background-image: url("/static/images/copy.svg");
     height: 18px;
@@ -833,7 +817,7 @@ a.orange_blueBG_btn:hover,
     border: 0;
 }
 
-.fake_input{
+.fake_input {
     background: #191C3A;
     width: 290px;
     height: 35px;
@@ -847,17 +831,17 @@ a.orange_blueBG_btn:hover,
 
 /* ====== Swal ======*/
 
-.title_swal{
+.title_swal {
     font-size: 14px;
     color: #FF5C00;
     margin-bottom: 8px;
 }
 
-.text_swal{
+.text_swal {
     color: #fff
 }
 
-.confirm_swal{
+.confirm_swal {
     margin-top: 16px;
     width: 286px;
     height: 42px;
@@ -867,7 +851,7 @@ a.orange_blueBG_btn:hover,
     border: #FF5C00
 }
 
-.input_swal{
+.input_swal {
     background: #191C3A;
     color: white;
 }
@@ -876,38 +860,42 @@ a.orange_blueBG_btn:hover,
     color: #575C8C;
 }
 
-.payment_methods{
+.payment_methods {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 83px;
 }
 
 
-.payment_method{
+.payment_method {
     background: #1A1D3D;
 }
-.payment_method:checked{
+
+.payment_method:checked {
     background: #FF5C00;
 }
 
-.payment_method > .bitcoin_icon{
+.payment_method > .bitcoin_icon {
     background-image: url("/static/images/bitcoinBlue.svg");
 }
-.payment_method:checked > .bitcoin_icon{
+
+.payment_method:checked > .bitcoin_icon {
     background-image: url("/static/images/bitcoinWhite.svg");
 }
 
-.payment_method > .paypal_icon{
+.payment_method > .paypal_icon {
     background-image: url("/static/images/paypalBlue.svg");
 }
-.payment_method:checked > .paypal_icon{
+
+.payment_method:checked > .paypal_icon {
     background-image: url("/static/images/paypalWhite.svg");
 }
 
-.payment_method > .credit_card_icon{
+.payment_method > .credit_card_icon {
     background-image: url("/static/images/creditCardBlue.svg");
 }
-.payment_method:checked > .credit_card_icon{
+
+.payment_method:checked > .credit_card_icon {
     background-image: url("/static/images/creditCardWhite.svg");
 }
 

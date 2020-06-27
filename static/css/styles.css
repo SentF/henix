@@ -748,7 +748,7 @@ a.orange_blueBG_btn:hover,
 
     color: #fff;
 
-    font-weight: 300;
+    font-weight: normal;
     font-size: 16px;
 
     display: grid;
@@ -803,6 +803,10 @@ a.orange_blueBG_btn:hover,
     color: #FF4141;
 }
 
+.yellow_text{
+    color: #FF9900;
+}
+
 .blue_text {
     color: #605EB7;
 }
@@ -819,7 +823,6 @@ a.orange_blueBG_btn:hover,
 
 .fake_input {
     background: #191C3A;
-    width: 290px;
     height: 35px;
     display: grid;
     grid-template-columns: auto 24px;
@@ -845,18 +848,16 @@ a.orange_blueBG_btn:hover,
     margin-top: 16px;
     height: 42px;
     background: #FF5C00;
-    width: 363px;
     color: #fff;
     border-radius: 5px;
     border: #FF5C00
 }
 
 .input_swal {
-    width: 363px;
     background: #191C3A;
     color: white;
-    margin-left: 9px;
     border: 0;
+    margin-bottom: 16px;
 }
 
 .input_swal::placeholder {
@@ -864,12 +865,13 @@ a.orange_blueBG_btn:hover,
 }
 
 .payment_methods {
+    margin-left: -11px;
     margin-top: 16px;
     margin-bottom: 16px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    width: 386px;
     height: 83px;
-    width: 378px;
 }
 
 .payment_methods input {
@@ -883,6 +885,8 @@ a.orange_blueBG_btn:hover,
 .payment_method {
     height: 83px;
     width: 111px;
+
+    justify-content: center;
 
     cursor: pointer;
     background-size: contain;
@@ -1130,9 +1134,15 @@ a.orange_blueBG_btn:hover,
 
     }
 
+    .fake_input{
+        margin-left: 6px;
+        width: 270px;
+    }
+
     .confirm_swal {
         height: 42px;
         width: 270px;
+        margin-left: 6px;
     }
 
     .input_swal {

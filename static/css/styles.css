@@ -430,6 +430,11 @@ pre code {
     padding-bottom: 20px;
 }
 
+.card-body > a {
+    font-size: 14px;
+    font-weight: normal;
+}
+
 /* ======= HISTORY ======= */
 .history {
     padding: 80px 0;
@@ -797,6 +802,10 @@ a.orange_blueBG_btn:hover,
     border: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.positive_text {
+    color: #00FFA3;
 }
 
 .red_text {

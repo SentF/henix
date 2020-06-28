@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#btn_key').click(function () {
+    $('.btn_key').click(function () {
         Swal.fire({
             html:
                 `<p class="title_swal">Thank you for buying</p>

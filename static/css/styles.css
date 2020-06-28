@@ -793,7 +793,7 @@ a.orange_blueBG_btn:hover,
     margin-bottom: 20px;
 }
 
-.key_icon {
+.btn_key {
     background-image: url("/static/images/key.svg");
     height: 39px;
     width: 39px;

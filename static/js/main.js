@@ -52,6 +52,8 @@ $(document).ready(function () {
         });
         $('.swal2-show').addClass("swal_updater");
     });
+
+    $('.tooltip-show').tooltip({delay: { "show": 0, "hide": 3000 }, html: true});
 });
 
 function copy() {

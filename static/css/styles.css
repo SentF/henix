@@ -140,6 +140,18 @@ pre code {
     font-size: 16px;
 }
 
+.tooltip .tooltip-inner {
+    background: #33386B;
+}
+
+.tooltip .arrow {
+    display: none;
+}
+
+.tooltip .arrow::before {
+    border-top-color: #33386B;
+}
+
 /* ======= Header ======= */
 .navbar {
     background: #1F2346;

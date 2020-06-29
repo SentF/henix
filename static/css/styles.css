@@ -163,6 +163,10 @@ pre code {
     padding-right: 20px;
 }
 
+.orange_header .navbar {
+    background: #FF4D00;
+}
+
 .navbar .navbar-brand {
     padding-bottom: 15px;
 }
@@ -171,6 +175,11 @@ pre code {
     color: #FF4D00 !important;
     background: rgba(255, 77, 0, 0.2);
     border-radius: 6px;
+}
+
+.orange_header .navbar .nav-item.active a {
+    color: #FFFFFF !important;
+    background: #FFFFFF;
 }
 
 .navbar .form-inline img {
@@ -185,8 +194,32 @@ pre code {
     margin-left: 10px;
 }
 
+.orange_header .navbar .navbar-nav .nav-item > a, .navbar .form-inline .nav-item > a {
+    color: #FFF;
+}
+
 .navbar .form-inline .nav-item > a {
     color: white;
+}
+
+.menu_icon{
+    background-image: url("/static/images/menu.svg");
+    height: 34px;
+    width: 34px;
+}
+
+.orange_header .menu_icon{
+    background-image: url("/static/images/menu_white.svg");
+}
+
+.henix_icon{
+    background-image: url("/static/images/henix.svg");
+    width: 75px;
+    height: 21.5px;
+}
+
+.orange_header .henix_icon {
+    background-image: url("/static/images/henix_on_orange.svg");
 }
 
 .navbar .dropdown-menu {
@@ -195,8 +228,16 @@ pre code {
     border: none;
 }
 
+.orange_header .navbar .dropdown-menu {
+    background: #ff6726;
+}
+
 .navbar .dropdown-menu > * {
     color: #605EB7;
+}
+
+.orange_header .navbar .dropdown-menu > * {
+    color: #fff;
 }
 
 .navbar .dropdown-menu > *:hover {
@@ -208,10 +249,19 @@ pre code {
     border-top: 1px solid #2B2F61;
 }
 
+.orange_header .navbar .dropdown-divider {
+    border-top: 1px solid #FFF;
+}
+
 .navbar .navbar-nav .nav-item > a:hover, .navbar .form-inline .nav-item > a:hover {
     color: #FF4D00;
     background: rgba(255, 77, 0, 0.36);
     border-radius: 10px;
+}
+
+.orange_header .navbar .navbar-nav .nav-item > a:hover, .navbar .form-inline .nav-item > a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.20);
 }
 
 .navbar .navbar-nav .nav-item a:focus, .navbar .form-inline .nav-item > a:focus {
@@ -221,6 +271,11 @@ pre code {
     border-radius: 10px;
 }
 
+.orange_header .navbar .navbar-nav .nav-item a:focus, .navbar .form-inline .nav-item > a:focus {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .navbar .navbar-toggler {
     border: none !important;
 }
@@ -228,6 +283,10 @@ pre code {
 .navbar .navbar-toggler, .navbar .navbar-toggler:focus {
     border: none !important;
     outline: none;
+}
+
+.orange_header .login_button{
+    background: #FF7B42 !important;
 }
 
 /* ========= Scroll bar ========= */
@@ -537,7 +596,7 @@ pre code {
 
 /* ====== Cheats Section ====== */
 .cheats {
-    background: #FF5C00;
+    background: #FF4D00;
     color: #fff;
     padding: 120px;
 }

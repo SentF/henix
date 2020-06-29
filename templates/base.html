@@ -33,15 +33,15 @@
     <![endif]-->
 </head>
 
-<body data-spy="scroll">
+<body data-spy="scroll" class={% block header_color %}{% endblock %}>
 <!-- ******HEADER****** -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="/"><img src="/static/images/henix.svg" alt="Henix"></a>
+        <a class="navbar-brand" href="/"><div class="henix_icon"></div></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <img src="/static/images/menu.svg"/>
+            <div class="menu_icon" ></div>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -53,9 +53,9 @@
                 <li class="nav-item"><a class="nav-link" href="/#history">Detection history</a></li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <a class="btn btn-cta-secondary" href="/login">Login</a>
+                <a class="btn btn-cta-secondary login_button" href="/login">Login</a>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    <a class="nav-link dropdown-toggle user_a" href="#" id="navbarDropdownMenuLink" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="/static/images/cheatIcon.jpg" width="40px" alt=""> { login here }
                     </a>

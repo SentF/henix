@@ -167,10 +167,6 @@ pre code {
     background: #FF4D00;
 }
 
-.navbar .navbar-brand {
-    padding-bottom: 15px;
-}
-
 .navbar .nav-item.active a {
     color: #FF4D00 !important;
     background: rgba(255, 77, 0, 0.2);
@@ -214,8 +210,9 @@ pre code {
 
 .henix_icon{
     background-image: url("/static/images/henix.svg");
+    background-repeat: no-repeat;
     width: 75px;
-    height: 21.5px;
+    height: 27px;
 }
 
 .orange_header .henix_icon {
@@ -259,7 +256,7 @@ pre code {
     border-radius: 10px;
 }
 
-.orange_header .navbar .navbar-nav .nav-item > a:hover, .navbar .form-inline .nav-item > a:hover {
+.orange_header .navbar .navbar-nav .nav-item > a:hover, .orange_header .navbar .form-inline .nav-item > a:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.20);
 }
@@ -271,7 +268,7 @@ pre code {
     border-radius: 10px;
 }
 
-.orange_header .navbar .navbar-nav .nav-item a:focus, .navbar .form-inline .nav-item > a:focus {
+.orange_header .navbar .navbar-nav .nav-item a:focus, .orange_header .navbar .form-inline .nav-item > a:focus {
     color: #fff;
     background: rgba(255, 255, 255, 0.1);
 }

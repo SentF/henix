@@ -1,3 +1,7 @@
+{% load socialaccount %}
+
+{% get_providers as socialaccount_providers %}
+
 <!DOCTYPE html>
 <!--[if IE 8]>
 <html lang="en" class="ie8"> <![endif]-->
@@ -33,15 +37,15 @@
     <![endif]-->
 </head>
 
-<body data-spy="scroll" class={% block header_color %}{% endblock %}>
+<body data-spy="scroll">
 <!-- ******HEADER****** -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="/"><div class="henix_icon"></div></a>
+        <a class="navbar-brand" href="/"><img src="/static/images/henix.svg" alt="Henix"></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="menu_icon" ></div>
+            <img src="/static/images/menu.svg"/>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -53,19 +57,25 @@
                 <li class="nav-item"><a class="nav-link" href="/#history">Detection history</a></li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <a class="btn btn-cta-secondary login_button" href="/login">Login</a>
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle user_a" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="/static/images/cheatIcon.jpg" width="40px" alt=""> { login here }
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/purchases">History</a>
-                        <a class="dropdown-item" href="/purchase">Purchase</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/logout">Logout</a>
+                {% if request.user.is_authenticated %}
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle user_a" href="#" id="navbarDropdownMenuLink" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="/static/images/cheatIcon.jpg" width="40px" alt=""> {{ request.user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/purchases">History</a>
+                            <a class="dropdown-item" href="/purchase">Purchase</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                        </div>
                     </div>
-                </div>
+                {% else %}
+                    {% for provider in socialaccount_providers %}
+                            <a class="btn btn-cta-secondary login_button" title="{{ provider.name }}" class="socialaccount_provider {{ provider.id }}"
+                               href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">Login with {{ provider.name }}</a>
+                    {% endfor %}
+                {% endif %}
             </form>
         </div>
     </div>

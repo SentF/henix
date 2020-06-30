@@ -108,72 +108,19 @@
             <h2 class="title text-center">Our product listings</h2>
             <p class="intro text-center">Only great selection of popular and secure cheats.</p>
             <div class="row">
+                {% for game in games %}
                 <div class="col-lg-4 col-sm-12">
                     <div class="card">
-                        <img src="/static/images/games/overwatch.jpg" class="card-img-top" alt="...">
+                        <img src="{{ game.image.url }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">OVERWATH</h5>
+                            <h5 class="card-title">{{ game.name }}</h5>
                             <p class="card-text">Offering various products both internal and external softwares at
-                                different price levels</p>
+                                different price levels</p> {# TODO Description and link, and move to snippet #}
                             <a href="/game" class="btn btn-block btn-cta-secondary">LEARN MORE</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-12">
-                    <div class="card">
-                        <img src="/static/images/games/overwatch.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">OVERWATH</h5>
-                            <p class="card-text">Offering various products both internal and external softwares at
-                                different price levels</p>
-                            <a href="/game" class="btn btn-block btn-cta-secondary">LEARN MORE</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                    <div class="card">
-                        <img src="/static/images/games/overwatch.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">OVERWATH</h5>
-                            <p class="card-text">Offering various products both internal and external softwares at
-                                different price levels</p>
-                            <a href="/game" class="btn btn-block btn-cta-secondary">LEARN MORE</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                    <div class="card">
-                        <img src="/static/images/games/overwatch.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">OVERWATH</h5>
-                            <p class="card-text">Offering various products both internal and external softwares at
-                                different price levels</p>
-                            <a href="/game" class="btn btn-block btn-cta-secondary">LEARN MORE</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                    <div class="card">
-                        <img src="/static/images/games/overwatch.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">OVERWATH</h5>
-                            <p class="card-text">Offering various products both internal and external softwares at
-                                different price levels</p>
-                            <a href="/game" class="btn btn-block btn-cta-secondary">LEARN MORE</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                    <div class="card">
-                        <img src="/static/images/games/overwatch.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">OVERWATH</h5>
-                            <p class="card-text">Offering various products both internal and external softwares at
-                                different price levels</p>
-                            <a href="/game" class="btn btn-block btn-cta-secondary">LEARN MORE</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div><!--//container-->
     </section><!--//products-->

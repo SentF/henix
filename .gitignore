@@ -142,3 +142,5 @@ venv/
 
 # IDEA
 .idea/
+
+/media/

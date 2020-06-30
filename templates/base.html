@@ -1,5 +1,6 @@
 {% load socialaccount %}
 {% load static %}
+{% load discord %}
 
 {% get_providers as socialaccount_providers %}
 
@@ -62,7 +63,7 @@
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle user_a" href="#" id="navbarDropdownMenuLink" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{% static 'images/cheatIcon.jpg' %}" width="40px" alt=""> {{ request.user.username }}
+                            <img src="{{ request.user.id|get_avatar }}" width="40px" alt=""> {{ request.user.username }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/purchases">History</a>

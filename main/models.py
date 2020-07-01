@@ -14,15 +14,19 @@ class Game(models.Model):
 class Cheat(models.Model):
     game = models.ForeignKey("Game", verbose_name="Game", on_delete=models.SET_NULL, null=True)
     name = models.CharField('Name', max_length=20)
-    mini_description = models.CharField('Name', max_length=64, blank=True, null=True)
+    mini_description = models.CharField('Mini description', max_length=64, blank=True, null=True)
     image = models.ImageField("Image", upload_to="cheat_images", blank=True, null=True)
 
     created_at = models.DateTimeField('Creation date', auto_now_add=True, blank=True)
     updated_at = models.DateTimeField('Update date', auto_now_add=True, blank=True)
-    status = models.CharField('Status', max_length=16)
+    STATUS_CHOICES = (
+        ("Detected", "Detected"),
+        ("Undetected", "Undetected"),
+    )
+    status = models.CharField('Status', choices=STATUS_CHOICES, max_length=24)
     price = models.FloatField('Price')
 
-    oc_support = models.CharField('Status', max_length=64)
+    oc_support = models.CharField('OC Support', max_length=64)
 
     def __str__(self):
         return f"{self.game.name} - {self.name}"
@@ -51,7 +55,7 @@ class Key(models.Model):
 class Detection(models.Model):
     title = models.CharField('Title', max_length=24)
     last_hit = models.DateTimeField('Last hit', null=True, blank=True)
-    cheat = models.ForeignKey(Cheat, verbose_name="Cheat", on_delete=models.CASCADE)
+    cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.cheat.name} - {self.last_hit}"
@@ -59,12 +63,17 @@ class Detection(models.Model):
 
 class Purchase(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.SET_NULL, null=True)
-    user = models.ForeignKey(LocalUser, verbose_name="User", on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey("LocalUser", verbose_name="User", on_delete=models.SET_NULL, null=True)
 
     date = models.DateTimeField('Date')
     payment = models.CharField('Payment method', max_length=16)
     payment_id = models.CharField('Payment id', max_length=64)
-    status = models.CharField('Status', max_length=16)
+    STATUS_CHOICES = (
+        ("Unpaid", "Unpaid"),
+        ("Pending", "Pending"),
+        ("Paid", "Paid"),
+    )
+    status = models.CharField('Status', choices=STATUS_CHOICES, max_length=24)
     key = models.CharField('Key', max_length=32)
 
     def __str__(self):
@@ -78,6 +87,3 @@ class Announcement(models.Model):
 
     def __str__(self):
         return f"{self.title}"
-
-
-# TODO  description, choose

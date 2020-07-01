@@ -13,16 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from allauth.account.views import logout
 from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, reverse_lazy
+from django.views.generic import RedirectView
 
 from henix import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^account/', include('allauth.urls')),
+    path('account/login/cancelled/', RedirectView.as_view(url=reverse_lazy('index'))),
+    url(r'^account/', include('allauth.socialaccount.urls')),
+    url(r'^account/', include('allauth.socialaccount.providers.discord.urls')),
+    url(r'^account/logout/', logout, name="account_logout"),
     path('', include('main.urls')),
 ]
 

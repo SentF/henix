@@ -64,6 +64,7 @@ class CheatFunctionAdmin(admin.ModelAdmin):
 class KeyAdmin(admin.ModelAdmin):
     list_display = ('id', 'is_sold', 'cheat_link')
     list_display_links = ('id', 'is_sold')
+    list_filter = ('is_sold',)
 
     def cheat_link(self, obj):
         return mark_safe('<a href="{}">{}</a>'.format(

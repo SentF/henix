@@ -15,9 +15,16 @@
                     <div id="images" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             {% for image in cheat.cheatimage_set.all %}
-                            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
-                                <img src="{{ image.image.url }}" class="d-block w-100" alt="...">
-                            </div>
+                                <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                    <img src="{{ image.image.url }}" class="d-block w-100" alt="...">
+                                </div>
+                            {% endfor %}
+                            {% for video in cheat.cheatvideo_set.all %}
+                                <div class="carousel-item {% if forloop.counter == 1 and cheat.cheatimage_set.all.count == 0 %}active{% endif %}">
+                                    <iframe width="450" height="250"
+                                            src="https://www.youtube.com/embed/{{ video.video }}">
+                                    </iframe>
+                                </div>
                             {% endfor %}
                         </div>
                         <a class="carousel-control-prev" href="#images" role="button" data-slide="prev">
@@ -32,9 +39,9 @@
                 </div>
                 <div class="col-md-7 col-sm-12">
                     {% if cheat.id|quantity == 0 %}
-                    <div class="out">Out of stock</div>
+                        <div class="out">Out of stock</div>
                     {% else %}
-                    <div class="out">In stock</div>
+                        <div class="out">In stock</div>
                     {% endif %}
                     <h2 class="title">{{ cheat.name }}</h2>
                     <p><strong>OC Support:</strong> {{ cheat.oc_support }}</p>

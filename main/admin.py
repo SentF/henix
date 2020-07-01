@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
-from main.models import Game, Cheat, Purchase, CheatFunction, Key, Detection, Announcement, CheatImage
+from main.models import Game, Cheat, Purchase, CheatFunction, Key, Detection, Announcement, CheatImage, CheatVideo
 
 
 # region filters
@@ -38,12 +38,19 @@ class CheatImageInline(admin.StackedInline):
     model = CheatImage
 
 
+class CheatVideoInline(admin.StackedInline):
+    min_num = 0
+    extra = 0
+    can_delete = True
+    model = CheatVideo
+
+
 @admin.register(Cheat)
 class CheatAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'game_link', 'created_at', 'updated_at')
     list_display_links = ('id', 'name')
     list_filter = ('game',)
-    inlines = (CheatImageInline,)
+    inlines = (CheatImageInline, CheatVideoInline)
 
     def game_link(self, obj):
         return mark_safe('<a href="{}">{}</a>'.format(

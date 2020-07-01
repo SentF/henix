@@ -48,6 +48,11 @@ class CheatImage(models.Model):
     image = models.ImageField("Image", upload_to="cheat_images")
 
 
+class CheatVideo(models.Model):
+    cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
+    video = models.CharField("Video id from youtube", max_length=16, default="tgbNymZ7vqY")
+
+
 class Key(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
 

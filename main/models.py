@@ -63,7 +63,7 @@ class Detection(models.Model):
 
 class Purchase(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.SET_NULL, null=True)
-    user = models.ForeignKey("LocalUser", verbose_name="User", on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(LocalUser, verbose_name="User", on_delete=models.SET_NULL, null=True)
 
     date = models.DateTimeField('Date')
     payment = models.CharField('Payment method', max_length=16)

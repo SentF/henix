@@ -515,7 +515,8 @@ pre code {
 }
 
 .history img {
-    margin: 15px;
+    margin: 23px;
+    width: 50px;
 }
 
 /* ======= Footer ======= */
@@ -611,13 +612,12 @@ a.orange_whiteBG_btn, .orange_whiteBG_btn {
     border-radius: 5px;
     color: #FF5C00;
     font-weight: 200;
-    background: #fff;
     padding: 14px 32px;
 }
 
 a.orange_whiteBG_btn:hover,
 .orange_whiteBG_btn:hover {
-    border: 1px solid #fff;
+    border: 1px solid #FF5C00;
     background: #FF5C00;
     color: #fff;
 }

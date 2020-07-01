@@ -53,11 +53,11 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item {% block home %}{% endblock %}"><a class="nav-link" href="/#promo">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#announcements">Announcements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#products">Product list</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#history">Detection history</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#promo">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#announcements">Announcements</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#products">Product list</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#history">Detection history</a></li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 {% if request.user.is_authenticated %}
@@ -100,15 +100,19 @@
         <div class="col-lg-3 col-xs-6">
             <p class="sub-title">Games</p>
             <ul>
-                <li><a href="/game">Overwatch</a></li>
-                <li><a href="/game">Overwatch</a></li>
+                {% for game in all_games %}
+                <li><a href="{% url 'game' game.id %}">{{ game.name }}</a></li>
+                {% endfor %}
             </ul>
         </div>
         <div class="col-lg-3 col-xs-6">
             <p class="sub-title">Navigation</p>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/nothome">Not home</a></li>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                 <li><a href="{% url 'index' %}#about">About</a></li>
+                 <li><a href="{% url 'index' %}#announcements">Announcements</a></li>
+                 <li><a href="{% url 'index' %}#products">Product list</a></li>
+                 <li><a href="{% url 'index' %}#history">Detection history</a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-xs-12 last">

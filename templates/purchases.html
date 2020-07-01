@@ -17,41 +17,22 @@
                         <text>Payment</text>
                         <text>Status</text>
                     </div>
+                    {% for purchase in purchases %}
                     <div class="purchase val">
-                        <text class="orange_text tooltip-show" data-toggle="tooltip" data-placement="top" title="a0723fc4-f173-4949-b10f-d0e463923db2">ID</text>
-                        <text>2012.04.05 13:22:54</text>
-                        <text>f0rward hack</text>
-                        <text>Apex Legends</text>
-                        <text>PayPal</text>
+                        <text class="orange_text tooltip-show" data-toggle="tooltip" data-placement="top" title="{{ purchase.payment_id }}">ID</text>
+                        <text>{{ purchase.date }}</text>
+                        <text>{{ purchase.cheat.name }}</text>
+                        <text>{{ purchase.cheat.game.name }}</text>
+                        <text>{{ purchase.payment }}</text>
                         <div>
-                            <text class="red_text">Unpaid</text>
-                            <text class="blue_text tooltip-show" data-toggle="tooltip" data-placement="top" title="{ Here text }">(?)</text>
+                            <text class="{{ purchase.get_color }}">{{ purchase.status }}</text>
+                            <text class="blue_text tooltip-show" data-toggle="tooltip" data-placement="top" title="{{ purchase.get_tooltip }}">(?)</text>
                         </div>
+                        {% if purchase.status == "Paid" %}
+                        <button class="btn_key" data-key="{{ purchase.key }}"> </button>
+                        {% endif %}
                     </div>
-                    <div class="purchase val">
-                        <text class="orange_text tooltip-show" data-toggle="tooltip" data-placement="top" title="a0723fc4-f173-4949-b10f-d0e463923db2">ID</text>
-                        <text>2012.04.05 13:22:54</text>
-                        <text>f0rward hack</text>
-                        <text>Apex Legends</text>
-                        <text>Card</text>
-                        <div>
-                            <text class="yellow_text">Pending</text>
-                            <text class="blue_text tooltip-show" data-toggle="tooltip" data-placement="top" title="{ Here text }">(?)</text>
-                        </div>
-                        <button class="btn_key"> </button>
-                    </div>
-                    <div class="purchase val">
-                        <text class="orange_text tooltip-show" data-toggle="tooltip" data-placement="top" title="a0723fc4-f173-4949-b10f-d0e463923db2">ID</text>
-                        <text>2012.04.05 13:22:54</text>
-                        <text>f0rward hack</text>
-                        <text>Apex Legends</text>
-                        <text>Unitpay</text>
-                        <div>
-                            <text class="positive_text">Paid</text>
-                            <text class="blue_text tooltip-show" data-toggle="tooltip" data-placement="top" title="{ Here text }">(?)</text>
-                        </div>
-                        <button class="btn_key"> </button>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

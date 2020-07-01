@@ -1,0 +1,41 @@
+{% load cheat %}
+{% for cheat in cheats %}
+    <div class="cheat {% if other %}other{% endif %}">
+                    <div class="cheat_min_data">
+                        <div class="grid_center y cheat_name_d">
+                            <div class="grid_center x y"><img src="{% if cheat.image %}{{ cheat.image.url }}{% endif %}" alt=""></div>
+                            <div>
+                                <p style="margin-bottom: 0px;" class="description_item">{{ cheat.name }}</p>
+                                <p style="margin-bottom: 0px;" class="description_value">{{ cheat.mini_description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cheat_min_data">
+                        <div class="grid_center x y">
+                            <p class="description_item">Last update</p>
+                            <p class="description_value">{{ cheat.updated_at }}</p>
+                        </div>
+                    </div>
+                    <div class="cheat_min_data">
+                        <div class="grid_center x y">
+                            <p class="description_item">Last detect</p>
+                            <p class="description_value">{{ cheat.id|last_detect }}</p>
+                        </div>
+                    </div>
+                    <div class="cheat_min_data">
+                        <div class="grid_center x y">
+                            <p class="description_item">Functions</p>
+                            <p class="description_value">100+</p>
+                        </div>
+                    </div>
+                    <div class="cheat_min_data">
+                        <div class="grid_center x y">
+                            <p class="description_item">Status</p>
+                            <p class="description_value delected_status">{{ cheat.status }}</p>
+                        </div>
+                    </div>
+                    <div class="cheat_min_data">
+                        <a href="{% url 'cheat' cheat.id %}" class="grid_center x y btn orange_whiteBG_btn">VIEW HACK</a>
+                    </div>
+                </div>
+{% endfor %}

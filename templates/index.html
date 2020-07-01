@@ -62,39 +62,15 @@
         <div class="text-center">
             <p class="title">Latest announcements</p>
             <ul class="cards">
+                {% for ann in announcements %}
                 <li class="card">
                     <div class="card-body">
-                        <img align="left" style="padding-top: 2px" src="/static/images/clockIcon.svg"> <p style="padding-left: 20px; color: #605EB7;" align="left">2020-04-18</p>
-                        <h5 align="left">Henix Shop</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        <img align="left" style="padding-top: 2px" src="/static/images/clockIcon.svg"> <p style="padding-left: 20px; color: #605EB7;" align="left">{{ ann.created_at.date }}</p>
+                        <h5 align="left">{{ ann.title }}</h5>
+                        <p class="card-text">{{ ann.text }}</p>
                     </div>
                 </li>
-                <li class="card">
-                    <div class="card-body">
-                        <img align="left" style="padding-top: 2px" src="/static/images/clockIcon.svg"> <p style="padding-left: 20px; color: #605EB7;" align="left">2020-04-18</p>
-                        <h5 align="left">Henix Shop</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="card-body">
-                        <img align="left" style="padding-top: 2px" src="/static/images/clockIcon.svg"> <p style="padding-left: 20px; color: #605EB7;" align="left">2020-04-18</p>
-                        <h5 align="left">Henix Shop</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="card-body">
-                        <img align="left" style="padding-top: 2px" src="/static/images/clockIcon.svg"> <p style="padding-left: 20px; color: #605EB7;" align="left">2020-04-18</p>
-                        <h5 align="left">Henix Shop</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </li>
+                {% endfor %}
                 <li class="cards_end"></li>
             </ul>
             <!--//Кнопочка-->
@@ -108,19 +84,7 @@
             <h2 class="title text-center">Our product listings</h2>
             <p class="intro text-center">Only great selection of popular and secure cheats.</p>
             <div class="row">
-                {% for game in games %}
-                <div class="col-lg-4 col-sm-12">
-                    <div class="card">
-                        <img src="{{ game.image.url }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ game.name }}</h5>
-                            <p class="card-text">Offering various products both internal and external softwares at
-                                different price levels</p> {# TODO Description and link, and move to snippet #}
-                            <a href="/game" class="btn btn-block btn-cta-secondary">LEARN MORE</a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+                {% include 'snippets/game_card.html' with games=games %}
             </div>
         </div><!--//container-->
     </section><!--//products-->
@@ -130,7 +94,8 @@
         <div class="container">
             <h2 class="title text-center">Detection history</h2>
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                {% for detect in detections %}
+                <div class="col-lg-3 col-md-6" style="cursor: pointer" onclick="document.location.href='{% url 'cheat' detect.cheat.id %}'">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-3">
@@ -138,133 +103,14 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="card-body">
-                                    <h5 class="card-title">New Critical Hit</h5>
-                                    <p class="card-text">Last hit Dec 10, 2019</p>
+                                    <h5 class="card-title">{{ detect.title }}</h5>
+                                    <p class="card-text">Last hit {{ detect.last_hit.date }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-3">
-                                <img src="/static/images/warning.svg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h5 class="card-title">New Critical Hit</h5>
-                                    <p class="card-text">Last hit Dec 10, 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-3">
-                                <img src="/static/images/warning.svg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h5 class="card-title">New Critical Hit</h5>
-                                    <p class="card-text">Last hit Dec 10, 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-3">
-                                <img src="/static/images/warning.svg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h5 class="card-title">New Critical Hit</h5>
-                                    <p class="card-text">Last hit Dec 10, 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-3">
-                                <img src="/static/images/warning.svg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h5 class="card-title">New Critical Hit</h5>
-                                    <p class="card-text">Last hit Dec 10, 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-3">
-                                <img src="/static/images/warning.svg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h5 class="card-title">New Critical Hit</h5>
-                                    <p class="card-text">Last hit Dec 10, 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-3">
-                                <img src="/static/images/warning.svg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h5 class="card-title">New Critical Hit</h5>
-                                    <p class="card-text">Last hit Dec 10, 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-3">
-                                <img src="/static/images/warning.svg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h5 class="card-title">New Critical Hit</h5>
-                                    <p class="card-text">Last hit Dec 10, 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-3">
-                                <img src="/static/images/warning.svg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card-body">
-                                    <h5 class="card-title">New Critical Hit</h5>
-                                    <p class="card-text">Last hit Dec 10, 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section><!--//products-->

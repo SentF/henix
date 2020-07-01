@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}A game{% endblock %}
+{% block title %}{{ game.name }} | Henix{% endblock %}
 
 {% block header_color %}orange_header{% endblock %}
 
@@ -9,85 +9,8 @@
     <section id="cheats" class="cheats section">
         <div class="container">
             <div class="text-center">
-                <h2 class="title">Cheats for the game "Valorant"</h2>
-
-
-                <div class="cheat">
-                    <div class="cheat_min_data">
-                        <div class="grid_center y cheat_name_d">
-                            <div class="grid_center x y cheatIcon"></div>
-                            <div>
-                                <p style="margin-bottom: 0px;" class="description_item">forw4rd hack</p>
-                                <p style="margin-bottom: 0px;" class="description_value">Best hack for Valorant.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cheat_min_data">
-                        <div class="grid_center x y">
-                            <p class="description_item">Last update</p>
-                            <p class="description_value">17.01.2018</p>
-                        </div>
-                    </div>
-                    <div class="cheat_min_data">
-                        <div class="grid_center x y">
-                            <p class="description_item">Last detect</p>
-                            <p class="description_value">23.01.2018</p>
-                        </div>
-                    </div>
-                    <div class="cheat_min_data">
-                        <div class="grid_center x y">
-                            <p class="description_item">Functions</p>
-                            <p class="description_value">100+</p>
-                        </div>
-                    </div>
-                    <div class="cheat_min_data">
-                        <div class="grid_center x y">
-                            <p class="description_item">Status</p>
-                            <p class="description_value delected_status">Detected</p>
-                        </div>
-                    </div>
-                    <div class="cheat_min_data">
-                        <a href="/cheat" class="grid_center x y btn orange_whiteBG_btn">VIEW HACK</a>
-                    </div>
-                </div>
-                <div class="cheat">
-                    <div class="cheat_min_data">
-                        <div class="grid_center y cheat_name_d">
-                            <div class="grid_center x y cheatIcon"></div>
-                            <div>
-                                <p style="margin-bottom: 0px;" class="description_item">forw4rd hack</p>
-                                <p style="margin-bottom: 0px;" class="description_value">Best hack for Valorant. Only for the premium users.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cheat_min_data">
-                        <div class="grid_center x y">
-                            <p class="description_item">Last update</p>
-                            <p class="description_value">22.01.2018</p>
-                        </div>
-                    </div>
-                    <div class="cheat_min_data">
-                        <div class="grid_center x y">
-                            <p class="description_item">Last detect</p>
-                            <p class="description_value">27.06.2017</p>
-                        </div>
-                    </div>
-                    <div class="cheat_min_data">
-                        <div class="grid_center x y">
-                            <p class="description_item">Functions</p>
-                            <p class="description_value">100+</p>
-                        </div>
-                    </div>
-                    <div class="cheat_min_data">
-                        <div class="grid_center x y">
-                            <p class="description_item">Status</p>
-                            <p class="description_value">Undetected</p>
-                        </div>
-                    </div>
-                    <div class="cheat_min_data">
-                        <a href="/cheat" class="grid_center x y btn orange_whiteBG_btn">VIEW HACK</a>
-                    </div>
-                </div>
+                <h2 class="title">Cheats for the game "{{ game.name }}"</h2>
+                {% include 'snippets/cheat_card.html' with cheats=cheats %}
             </div>
         </div>
     </section>
@@ -98,19 +21,7 @@
             <h2 class="title text-center">You might be interested</h2>
             <p class="intro text-center"></p>
             <div class="row">
-                {% for game in games %}
-                <div class="col-lg-4 col-sm-12">
-                    <div class="card">
-                        <img src="{{ game.image.url }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ game.name }}</h5>
-                            <p class="card-text">Offering various products both internal and external softwares at
-                                different price levels</p>
-                            <a href="/game" class="btn btn-block btn-cta-secondary">LEARN MORE</a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+                {% include 'snippets/game_card.html' with games=games %}
             </div>
         </div><!--//container-->
     </section><!--//products-->

@@ -5,7 +5,7 @@ $(document).ready(function () {
                 `<p class="title_swal">Thank you for buying</p>
                 <p class="text_swal"> Get the key to activate the hack.</p>
                 <div class="fake_input btn-block">
-                    <text style="text-align: left; font-size: 16px; margin-left: 8px" class="blue_text">H12TJI21F2130JI0TDSSPAD412</text>
+                    <text style="text-align: left; font-size: 16px; margin-left: 8px" class="blue_text">${$(this).attr('data-key')}</text>
                     <button onclick="copy()" class="copy_icon"></button>
                 </div>
                 <button onclick="closeSwal()" class="confirm_swal btn-block">Done</button>`

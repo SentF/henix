@@ -1,6 +1,7 @@
 # Henix
 ## To install
 - Install requirements from `requirements.txt`
+- Set env variables (HOST)
 - Mirage database `python manage.py migrate`
 - Create super user `python manage.py createsuperuser`
 - Run django server `python manage.py runserver`

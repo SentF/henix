@@ -26,6 +26,7 @@ class Cheat(models.Model):
     )
     status = models.CharField('Status', choices=STATUS_CHOICES, max_length=24)
     price = models.FloatField('Price')
+    is_selected = models.BooleanField('Is selected', default=False)
 
     oc_support = models.CharField('OC Support', max_length=64)
 

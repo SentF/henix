@@ -618,7 +618,6 @@ a.orange_whiteBG_btn, .orange_whiteBG_btn {
     box-sizing: border-box;
     border-radius: 5px;
     color: #FF5C00;
-    font-weight: 200;
     padding: 14px 32px;
 }
 
@@ -660,7 +659,7 @@ a.orange_whiteBG_btn:hover,
     grid-template-rows: 50px;
 }
 
-.cheat:hover {
+.cheat.selected {
     box-shadow: 0 0 0 8px #FF9365, 0 0 0 8px #FF9365;
 }
 
@@ -783,7 +782,7 @@ a.orange_whiteBG_btn:hover,
     background: #24284E;
 }
 
-.other.cheat:hover {
+.other.cheat.selected {
     box-shadow: 0 0 0 8px #313663, 0 0 0 8px #313663;
 }
 
@@ -1182,9 +1181,8 @@ a.orange_blueBG_btn:hover,
 
     .cheat_min_data > .orange_whiteBG_btn, .cheat_min_data > .orange_blueBG_btn {
         width: 80%;
-
         justify-self: center;
-        margin: 0 auto;
+        margin: 0 auto 20px auto;
     }
 
     .cheat-info {

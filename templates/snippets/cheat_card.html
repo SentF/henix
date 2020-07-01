@@ -1,6 +1,6 @@
 {% load cheat %}
 {% for cheat in cheats %}
-    <div class="cheat {% if other %}other{% endif %}">
+    <div class="cheat {% if other %}other{% endif %} {% if cheat.is_selected %}selected{% endif %}">
                     <div class="cheat_min_data">
                         <div class="grid_center y cheat_name_d">
                             <div class="grid_center x y"><img src="{% if cheat.image %}{{ cheat.image.url }}{% endif %}" alt=""></div>

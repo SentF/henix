@@ -66,7 +66,12 @@ class Purchase(models.Model):
     user = models.ForeignKey(LocalUser, verbose_name="User", on_delete=models.SET_NULL, null=True)
 
     date = models.DateTimeField('Date')
-    payment = models.CharField('Payment method', max_length=16)
+    PAYMENT_CHOICES = (
+        ("Card", "Card"),
+        ("Bitcoin", "Bitcoin"),
+        ("PayPal", "PayPal")
+    )
+    payment = models.CharField('Payment method', choices=PAYMENT_CHOICES, max_length=16)
     payment_id = models.CharField('Payment id', max_length=64)
     STATUS_CHOICES = (
         ("Unpaid", "Unpaid"),
@@ -74,7 +79,23 @@ class Purchase(models.Model):
         ("Paid", "Paid"),
     )
     status = models.CharField('Status', choices=STATUS_CHOICES, max_length=24)
-    key = models.CharField('Key', max_length=32)
+    key = models.CharField('Key', max_length=32, blank=True)
+
+    def get_color(self):
+        choices = {
+            'Unpaid': 'red_text',
+            'Pending': 'yellow_text',
+            'Paid': 'positive_text'
+        }
+        return choices[self.status]
+
+    def get_tooltip(self):
+        choices = {
+            'Unpaid': 'Not paid yet. Please paid to get this.',
+            'Pending': 'Payment pending.',
+            'Paid': 'You can get and activate key'
+        }
+        return choices[self.status]
 
     def __str__(self):
         return f"{self.user.username} - {self.cheat.name}"

@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
-from main.models import Game, Cheat, Purchase
+from main.models import Game, Cheat, Purchase, CheatFunction, Key, Detection, Announcement
 
 
 # region filters
@@ -14,9 +14,7 @@ class UserFilter(admin.SimpleListFilter):
     def lookups(self, request, model_admin):
         qs = model_admin.get_queryset(request)
 
-        return (
-            ([pur.user.username for pur in qs] * 2),
-        )
+        return set((pur.user.username, pur.user.username) for pur in qs)
 
     def queryset(self, request, queryset):
         if self.value() is None:
@@ -48,6 +46,48 @@ class CheatAdmin(admin.ModelAdmin):
     game_link.short_description = 'game'
 
 
+@admin.register(CheatFunction)
+class CheatFunctionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'cheat_link')
+    list_display_links = ('id', 'name')
+
+    def cheat_link(self, obj):
+        return mark_safe('<a href="{}">{}</a>'.format(
+            reverse("admin:main_cheat_change", args=(obj.cheat.id,)),
+            obj.cheat.name
+        ))
+
+    cheat_link.short_description = 'cheat'
+
+
+@admin.register(Key)
+class KeyAdmin(admin.ModelAdmin):
+    list_display = ('id', 'is_sold', 'cheat_link')
+    list_display_links = ('id', 'is_sold')
+
+    def cheat_link(self, obj):
+        return mark_safe('<a href="{}">{}</a>'.format(
+            reverse("admin:main_cheat_change", args=(obj.cheat.id,)),
+            obj.cheat.name
+        ))
+
+    cheat_link.short_description = 'cheat'
+
+
+@admin.register(Detection)
+class DetectionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'cheat_link', 'last_hit')
+    list_display_links = ('id', 'title')
+
+    def cheat_link(self, obj):
+        return mark_safe('<a href="{}">{}</a>'.format(
+            reverse("admin:main_cheat_change", args=(obj.cheat.id,)),
+            obj.cheat.name
+        ))
+
+    cheat_link.short_description = 'cheat'
+
+
 @admin.register(Purchase)
 class PurchaseAdmin(admin.ModelAdmin):
     list_display = ('id', 'payment_id', 'user_link', 'cheat_link', 'payment', 'status', 'date')
@@ -70,4 +110,10 @@ class PurchaseAdmin(admin.ModelAdmin):
         ))
 
     cheat_link.short_description = 'cheat'
+
+
+@admin.register(Announcement)
+class AnnouncementAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'created_at')
+    list_display_links = ('id', 'title')
 # endregion

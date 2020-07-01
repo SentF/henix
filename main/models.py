@@ -43,6 +43,11 @@ class CheatFunction(models.Model):
         return f"{self.cheat.name} - {self.name}"
 
 
+class CheatImage(models.Model):
+    cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
+    image = models.ImageField("Image", upload_to="cheat_images")
+
+
 class Key(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
 
@@ -54,13 +59,13 @@ class Key(models.Model):
 
 
 class Detection(models.Model):
+    cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
+
     title = models.CharField('Title', max_length=24)
     last_hit = models.DateTimeField('Last hit', null=True, blank=True)
-    cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.cheat.name} - {self.last_hit}"
-
 
 class Purchase(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.SET_NULL, null=True)

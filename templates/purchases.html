@@ -19,14 +19,14 @@
                     </div>
                     {% for purchase in purchases %}
                     <div class="purchase val">
-                        <text class="orange_text tooltip-show" data-toggle="tooltip" data-placement="top" title="{{ purchase.payment_id }}">ID</text>
+                        <text class="orange_text tooltip-show slow" data-toggle="tooltip" data-placement="top" title="{{ purchase.payment_id }}">ID</text>
                         <text>{{ purchase.date }}</text>
                         <text>{{ purchase.cheat.name }}</text>
                         <text>{{ purchase.cheat.game.name }}</text>
                         <text>{{ purchase.payment }}</text>
                         <div>
                             <text class="{{ purchase.get_color }}">{{ purchase.status }}</text>
-                            <text class="blue_text tooltip-show" data-toggle="tooltip" data-placement="top" title="{{ purchase.get_tooltip }}">(?)</text>
+                            <text class="blue_text tooltip-show fast" data-toggle="tooltip" data-placement="top" title="{{ purchase.get_tooltip }}">(?)</text>
                         </div>
                         {% if purchase.status == "Paid" %}
                         <button class="btn_key" data-key="{{ purchase.key }}"> </button>

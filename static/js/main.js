@@ -53,7 +53,8 @@ $(document).ready(function () {
         $('.swal2-show').addClass("swal_updater");
     });
 
-    $('.tooltip-show').tooltip({delay: { "show": 0, "hide": 3000 }, html: true});
+    $('.tooltip-show.fast').tooltip({delay: { "show": 0, "hide": 0 }, html: true});
+    $('.tooltip-show.slow').tooltip({delay: { "show": 0, "hide": 3000 }, html: true});
 });
 
 function copy() {

@@ -447,11 +447,11 @@ pre code {
     padding: 80px 0;
     background: #1F2346;
     color: #fff;
-    overflow-x: scroll;
+    overflow-x: hidden;
 }
 
 .announcements .cards {
-    margin-left: 200px;
+    margin-left: 20%;
 }
 
 .announcements .card {
@@ -484,6 +484,34 @@ pre code {
     height: 280px;
     width: 40vh;
     right: 0;
+}
+
+.bNext{
+    background: #1A1D3D;
+    margin: 0 auto;
+    color: #fff;
+    height: 66px;
+    width: 172px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.bNext > *{
+    align-self: center;
+    justify-content: center;
+}
+
+.bNext > p{
+    margin-bottom: 0;
+    font-weight: normal;
+    margin-left: 32px;
+    font-size: 16px;
+}
+
+.next_arrow_icon{
+    width: 53px;
+    height: 7px;
+    background-image: url("/static/images/next_arrow.svg");
 }
 
 /* ======= Products Section ======= */

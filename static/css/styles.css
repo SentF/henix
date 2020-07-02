@@ -189,7 +189,7 @@ pre code {
     border-radius: 50%;
 }
 
-.navbar .navbar-nav .nav-item > a, .navbar .form-inline .nav-item > a {
+.navbar .navbar-nav .nav-item > a{
     color: #605EB7;
     border: 10px;
     font-size: 16px;
@@ -203,6 +203,11 @@ pre code {
 
 .navbar .form-inline .nav-item > a {
     color: white;
+}
+
+.navbar .login_button {
+    margin-top: 8px;
+    margin-bottom: 9px;
 }
 
 .menu_icon{
@@ -1049,9 +1054,12 @@ a.orange_blueBG_btn:hover,
         margin-left: 0;
     }
 
-    .navbar-nav .nav-link {
-        padding-left: 5px !important;
-        margin-left: 0 !important;
+    .navlink.dropdown-toggle {
+        margin-left: 0;
+    }
+
+    .navbar .navbar-nav .nav-item > a {
+        margin-left: 0;
     }
 
     .offset-header {

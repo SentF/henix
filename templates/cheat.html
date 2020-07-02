@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% load cheat %}
 
 {% block title %}{{ cheat.name }} | Henix{% endblock %}
 
 {% block header_color %}orange_header{% endblock %}
+{% block menu_img %}{% static 'images/menu_white.svg' %}{% endblock %}
 
 {% block content %}
     <!-- ******cheat-info****** -->

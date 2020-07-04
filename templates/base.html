@@ -95,19 +95,19 @@
         <div class="col-lg-3 col-xs-12 info">
             <p class="title">Henix shop</p>
             <p class="copyright">© 2020 Rev1ve @Seque</p>
-            <p class="discord">Discord: sequel#3452</p>
+            <p class="discord_info_footer">Discord: sequel#3452</p>
         </div>
         <div class="col-lg-3 col-xs-6">
-            <p class="sub-title">Games</p>
-            <ul>
+            <p class="footer_title sub-title">Games</p>
+            <ul class="footer_a">
                 {% for game in all_games %}
                 <li><a href="{% url 'game' game.id %}">{{ game.name }}</a></li>
                 {% endfor %}
             </ul>
         </div>
         <div class="col-lg-3 col-xs-6">
-            <p class="sub-title">Navigation</p>
-            <ul>
+            <p class="footer_title sub-title">Navigation</p>
+            <ul class="footer_a">
                 <li><a href="{% url 'index' %}">Home</a></li>
                  <li><a href="{% url 'index' %}#about">About</a></li>
                  <li><a href="{% url 'index' %}#announcements">Announcements</a></li>
@@ -116,8 +116,8 @@
             </ul>
         </div>
         <div class="col-lg-3 col-xs-12 last">
-            <p class="sub-title">Rules</p>
-            <ul>
+            <p class="footer_title sub-title">Rules</p>
+            <ul class="footer_a">
                 <li><a href="/terms">Terms of Service</a></li>
             </ul>
         </div>

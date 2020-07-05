@@ -188,6 +188,10 @@ pre code {
     background: #FF4D00;
 }
 
+.navbar .navbar-nav .nav-link.nav-item {
+    color: white;
+}
+
 .navbar .nav-item.active a {
     color: #FF4D00 !important;
     background: rgba(255, 77, 0, 0.2);
@@ -199,7 +203,7 @@ pre code {
     background: #FFFFFF;
 }
 
-.navbar .form-inline img {
+img.avatar {
     border-radius: 50%;
 }
 
@@ -1101,6 +1105,24 @@ a.orange_blueBG_btn:hover,
         margin-left: 0;
     }
 
+    .navbar .container {
+        height: 40px;
+        background:  #1F2346;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: end;
+        flex-basis: 70%;
+        margin-left: auto;
+        flex-grow: 0;
+        background:  #1F2346;
+    }
+
+    .login_button {
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
     .offset-header {
         padding-top: 10vh !important;
         height: inherit;
@@ -1261,13 +1283,17 @@ a.orange_blueBG_btn:hover,
         padding: 100px 0 0;
     }
 
-    .cheat-info .hide-on-mobile {
+    .hide-on-mobile {
         display: none;
     }
 
     .youtube {
         width: 300px;
         height: 158px;
+    }
+
+    .price {
+        text-align: center;
     }
 
     .fixed_container {
@@ -1316,6 +1342,18 @@ a.orange_blueBG_btn:hover,
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: end;
+    }
+
+    .login_button {
+        margin-left: auto;
+    }
+
     .cheats {
         background: #FF5C00;
         color: #fff;
@@ -1350,6 +1388,10 @@ a.orange_blueBG_btn:hover,
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
+    .hide-on-pc {
+        display: none;
+    }
+
     .cheats {
         background: #FF5C00;
         color: #fff;
@@ -1378,6 +1420,12 @@ a.orange_blueBG_btn:hover,
 
     .history .card-text {
         font-size: 10px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hide-on-pc {
+        display: none;
     }
 }
 

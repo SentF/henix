@@ -44,7 +44,9 @@
 <!-- ******HEADER****** -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="/"><div class="henix_icon"></div></a>
+        <a class="navbar-brand" href="/">
+            <div class="henix_icon"></div>
+        </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,21 +55,35 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                {% if request.user.is_authenticated %}
+                <li class="nav-item nav-link hide-on-pc"><img class="avatar" src="{{ request.user.id|get_avatar }}" width="40px"
+                                                     alt=""> {{ request.user.username }}</li>
+                {% endif %}
                 <li class="nav-item"><a class="nav-link" href="/#promo">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#announcements">Announcements</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#products">Product list</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'index' %}#history">Detection history</a></li>
+                {% if request.user.is_authenticated %}
+                <div class="dropdown-divider"></div>
+                <li class="nav-item hide-on-pc"><a class="dropdown-item" href="{% url 'purchases' %}">History</a></li>
+                <li class="nav-item hide-on-pc"><a class="dropdown-item" href="/purchase">Purchase</a></li>
+                {% if request.user.is_superuser %}
+                    <li class="nav-item hide-on-pc"><a class="dropdown-item" href="{% url 'admin:index' %}">Admin Panel</a></li>
+                {% endif %}
+                <li class="nav-item hide-on-pc"><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                {% endif %}
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 {% if request.user.is_authenticated %}
-                    <div class="nav-item dropdown">
+                    <div class="nav-item dropdown hide-on-mobile">
                         <a class="nav-link dropdown-toggle user_a" href="#" id="navbarDropdownMenuLink" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{ request.user.id|get_avatar }}" width="40px" alt=""> {{ request.user.username }}
+                            <img class="avatar" src="{{ request.user.id|get_avatar }}" width="40px"
+                                 alt=""> {{ request.user.username }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/purchases">History</a>
+                            <a class="dropdown-item" href="{% url 'purchases' %}">History</a>
                             <a class="dropdown-item" href="/purchase">Purchase</a>
                             {% if request.user.is_superuser %}
                                 <a class="dropdown-item" href="{% url 'admin:index' %}">Admin Panel</a>
@@ -78,8 +94,10 @@
                     </div>
                 {% else %}
                     {% for provider in socialaccount_providers %}
-                            <a class="btn btn-cta-secondary login_button" title="{{ provider.name }}" class="socialaccount_provider {{ provider.id }}"
-                               href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">Login with {{ provider.name }}</a>
+                        <a class="btn btn-cta-secondary login_button" title="{{ provider.name }}"
+                           class="socialaccount_provider {{ provider.id }}"
+                           href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">Login
+                            with {{ provider.name }}</a>
                     {% endfor %}
                 {% endif %}
             </form>
@@ -101,7 +119,7 @@
             <p class="footer_title sub-title">Games</p>
             <ul class="footer_a">
                 {% for game in all_games %}
-                <li><a href="{% url 'game' game.id %}">{{ game.name }}</a></li>
+                    <li><a href="{% url 'game' game.id %}">{{ game.name }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -109,13 +127,13 @@
             <p class="footer_title sub-title">Navigation</p>
             <ul class="footer_a">
                 <li><a href="{% url 'index' %}">Home</a></li>
-                 <li><a href="{% url 'index' %}#about">About</a></li>
-                 <li><a href="{% url 'index' %}#announcements">Announcements</a></li>
-                 <li><a href="{% url 'index' %}#products">Product list</a></li>
-                 <li><a href="{% url 'index' %}#history">Detection history</a></li>
+                <li><a href="{% url 'index' %}#about">About</a></li>
+                <li><a href="{% url 'index' %}#announcements">Announcements</a></li>
+                <li><a href="{% url 'index' %}#products">Product list</a></li>
+                <li><a href="{% url 'index' %}#history">Detection history</a></li>
             </ul>
         </div>
-        <div class="col-lg-3 col-12">
+        <div class="col-lg-3 col-12 last">
             <p class="footer_title sub-title">Rules</p>
             <ul class="footer_a">
                 <li><a href="/terms">Terms of Service</a></li>

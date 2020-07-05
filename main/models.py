@@ -6,7 +6,7 @@ from localusers.models import LocalUser
 class Game(models.Model):
     name = models.CharField('Name', max_length=20)
     description = models.TextField('Description', blank=True, default="")
-    image = models.ImageField("Image", upload_to="game_images", blank=True, null=True)
+    image = models.ImageField("Image", upload_to="game_images", blank=False, null=True)
 
     def __str__(self):
         return self.name

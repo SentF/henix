@@ -1118,6 +1118,14 @@ a.orange_blueBG_btn:hover,
         background:  #1F2346;
     }
 
+    .orange_header .navbar .navbar-collapse {
+        background:  #FF4D00;
+    }
+
+    .orange_header .navbar .container {
+        background:  #FF4D00;
+    }
+
     .login_button {
         margin-left: auto;
         margin-right: 10px;

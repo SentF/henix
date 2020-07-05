@@ -472,10 +472,10 @@ img.avatar {
 
 /* ======= Announcements Section ======= */
 .announcements {
-    padding: 80px 0;
     background: #1F2346;
     color: #fff;
     overflow-x: hidden;
+    padding: 80px 0 30px;
 }
 
 .announcements .cards {
@@ -498,6 +498,7 @@ img.avatar {
 
 .cards li {
     list-style-type: none;
+    border-color: #1A1D3D;
 }
 
 .cards li div {
@@ -510,7 +511,7 @@ img.avatar {
     background: linear-gradient(90deg, #1F2346 0%, rgba(31, 35, 70, 0) 89.63%);
     transform: matrix(-1, 0, 0, 1, 0, 0);
     height: 280px;
-    width: 40vh;
+    width: 30%;
     right: 0;
 }
 

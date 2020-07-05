@@ -303,6 +303,11 @@ img.avatar {
     background: rgba(255, 255, 255, 0.1);
 }
 
+.orange_header .nav-item a:hover, .orange_header .nav-item a:focus{
+    background-color: #fff;
+    color: #FF3D00;
+}
+
 .navbar .navbar-toggler {
     border: none !important;
 }
@@ -688,7 +693,9 @@ a.orange_whiteBG_btn, .orange_whiteBG_btn {
 }
 
 a.orange_whiteBG_btn:hover,
-.orange_whiteBG_btn:hover {
+.orange_whiteBG_btn:hover,
+a.orange_whiteBG_btn:focus,
+.orange_whiteBG_btn:focus{
     border: 1px solid #FF5C00;
     background: #FF5C00;
     color: #fff;
@@ -1261,7 +1268,7 @@ a.orange_blueBG_btn:hover,
         height: 100%;
         display: grid;
         border-right: none !important;
-        border-bottom: 1px solid #313663;
+        border-bottom: 1px solid #EAEAEA;
     }
 
     .cheat_min_data:last-child {

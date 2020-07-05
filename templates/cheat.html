@@ -23,7 +23,7 @@
                             {% endfor %}
                             {% for video in cheat.cheatvideo_set.all %}
                                 <div class="carousel-item {% if forloop.counter == 1 and cheat.cheatimage_set.all.count == 0 %}active{% endif %}">
-                                    <iframe width="450" height="250"
+                                    <iframe class="youtube"
                                             src="https://www.youtube.com/embed/{{ video.video }}">
                                     </iframe>
                                 </div>
@@ -51,30 +51,30 @@
                     <p><strong>Last update:</strong> {{ cheat.updated_at }}</p>
                     <p><strong>Status:</strong> {{ cheat.status }}</p>
                     <form class="row">
-                        <div class="form-group col-md-4 col-8">
-                            <div class="dropdown">
-                                <a class="btn btn-block btn-light dropdown-toggle" href="#" role="button"
-                                   id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="true">
-                                    Choose plan
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">3 days</a>
-                                    <a class="dropdown-item" href="#">30 days</a>
-                                    <a class="dropdown-item" href="#">128 days</a>
-                                </div>
+                        <div class="col-md-3 col-8">
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option disabled selected>Choose plan</option>
+                                    <option>3 days</option>
+                                    <option>30 days</option>
+                                    <option>128 days</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="form-group col-md-3 hide-on-mobile">
-                            <button type="button" class="btn btn-block btn-light">Quantity</button>
+                        <div class="col-md-3 hide-on-mobile">
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="" placeholder="Quantity">
+                            </div>
                         </div>
-                        <div class="form-group col-md-2 col-4">
-                            <button id="btn_buy" type="button" class="btn btn-cta-primary">
-                                <img alt="" src="/static/images/cart.svg">
-                            </button>
+                        <div class="col-md-2 col-4">
+                            <div class="form-group">
+                                <button id="btn_buy" type="button" class="btn btn-cta-orange">
+                                    <img alt="" src="/static/images/cart.svg">
+                                </button>
+                            </div>
                         </div>
-                        <div class="form-group col-md-3 col-12">
-                            <p class="price text-center">Total price: {{ cheat.price }}$</p>
+                        <div class="form-group col-md-4 col-12">
+                            <p class="price">Total price: {{ cheat.price }}$</p>
                         </div>
                     </form>
                 </div>

@@ -102,6 +102,20 @@ a.btn-cta-secondary:hover,
     color: #fff;
 }
 
+a.btn-cta-orange,
+.btn-cta-orange {
+    background: #FF7B42;
+    color: #fff;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+a.btn-cta-orange:hover,
+.btn-cta-orange:hover {
+    background: #d23f00;
+    color: #fff;
+}
+
 .text-highlight {
     color: #074f66;
 }
@@ -766,7 +780,7 @@ a.orange_whiteBG_btn:hover,
 }
 
 #images img, #images .carousel-inner {
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .cheat-info .title {
@@ -801,6 +815,12 @@ a.orange_whiteBG_btn:hover,
 .cheat-info .cart {
     display: flex;
     justify-content: center;
+}
+
+.youtube {
+    width: 450px;
+    height: 245px;
+    border: 0;
 }
 
 /* ======= Functions ======= */
@@ -1069,6 +1089,10 @@ a.orange_blueBG_btn:hover,
         margin-left: 0;
     }
 
+    .navbar .nav-link {
+        padding: 10px;
+    }
+
     .navlink.dropdown-toggle {
         margin-left: 0;
     }
@@ -1242,6 +1266,11 @@ a.orange_blueBG_btn:hover,
 
     .cheat-info .hide-on-mobile {
         display: none;
+    }
+
+    .youtube {
+        width: 300px;
+        height: 158px;
     }
 
     .fixed_container {

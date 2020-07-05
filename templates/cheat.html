@@ -48,7 +48,7 @@
                     <h2 class="title">{{ cheat.name }}</h2>
                     <p><strong>OC Support:</strong> {{ cheat.oc_support }}</p>
                     <p><strong>Last detection:</strong> {{ cheat.id|last_detect }}</p>
-                    <p><strong>Last update:</strong> {{ cheat.updated_at }}</p>
+                    <p><strong>Last update:</strong> {{ cheat.updated_at.date }}</p>
                     <p><strong>Status:</strong> {{ cheat.status }}</p>
                     <form class="row">
                         <div class="col-md-3 col-8">

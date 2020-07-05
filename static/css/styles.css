@@ -65,7 +65,7 @@ a.btn:focus {
 }
 
 .btn-light:focus,
-a.btn-light:focus{
+a.btn-light:focus {
     color: #000;
 }
 
@@ -203,7 +203,7 @@ pre code {
     border-radius: 50%;
 }
 
-.navbar .navbar-nav .nav-item > a{
+.navbar .navbar-nav .nav-item > a {
     color: #605EB7;
     border: 10px;
     font-size: 16px;
@@ -224,17 +224,17 @@ pre code {
     margin-bottom: 9px;
 }
 
-.menu_icon{
+.menu_icon {
     background-image: url("/static/images/menu.svg");
     height: 34px;
     width: 34px;
 }
 
-.orange_header .menu_icon{
+.orange_header .menu_icon {
     background-image: url("/static/images/menu_white.svg");
 }
 
-.henix_icon{
+.henix_icon {
     background-image: url("/static/images/henix.svg");
     background-repeat: no-repeat;
     width: 75px;
@@ -308,7 +308,7 @@ pre code {
     outline: none;
 }
 
-.orange_header .login_button{
+.orange_header .login_button {
     background: #FF7B42 !important;
 }
 
@@ -505,7 +505,7 @@ pre code {
     right: 0;
 }
 
-.bNext{
+.bNext {
     background: #1A1D3D;
     margin: 0 auto;
     color: #fff;
@@ -515,19 +515,19 @@ pre code {
     grid-template-columns: 1fr 1fr;
 }
 
-.bNext > *{
+.bNext > * {
     align-self: center;
     justify-content: center;
 }
 
-.bNext > p{
+.bNext > p {
     margin-bottom: 0;
     font-weight: normal;
     margin-left: 32px;
     font-size: 16px;
 }
 
-.next_arrow_icon{
+.next_arrow_icon {
     width: 53px;
     height: 7px;
     background-image: url("/static/images/next_arrow.svg");
@@ -649,15 +649,15 @@ pre code {
     padding-left: 0;
 }
 
-.footer_a > li{
+.footer_a > li {
     margin-top: 5px;
 }
 
-.footer_a > li > a{
+.footer_a > li > a {
     font-size: 16px;
 }
 
-.footer_title{
+.footer_title {
     font-weight: 500;
 }
 
@@ -954,7 +954,7 @@ a.orange_blueBG_btn:hover,
     color: #FF4141;
 }
 
-.yellow_text{
+.yellow_text {
     color: #FF9900;
 }
 
@@ -1165,7 +1165,16 @@ a.orange_blueBG_btn:hover,
     }
 
     .footer > .row > * {
-        height: fit-content;
+        height: auto;
+    }
+
+    .footer .row > * > * {
+        margin-left: 10px;
+    }
+
+    .discord_info_footer {
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
     .footer .row .last {
@@ -1195,18 +1204,6 @@ a.orange_blueBG_btn:hover,
     .footer .title {
         margin-top: 10px;
         margin-left: 0;
-    }
-
-    .footer > .row > *:not(:first-child) {
-        width: 50%
-    }
-
-    .footer > .row > *:last-child {
-        width: 100%
-    }
-
-    .footer > .row > *:last-child > .sub-title, .footer > .row > *:last-child > ul {
-        margin-left: 10%;
     }
 
     .cheats {
@@ -1296,7 +1293,7 @@ a.orange_blueBG_btn:hover,
 
     }
 
-    .fake_input{
+    .fake_input {
         margin-left: 6px;
         width: 270px;
     }
@@ -1312,7 +1309,7 @@ a.orange_blueBG_btn:hover,
         margin-left: 6px;
     }
 
-    .swal_updater{
+    .swal_updater {
         padding: 10px !important;
         width: 300px !important;
     }

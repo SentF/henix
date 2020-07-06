@@ -31,4 +31,13 @@ def ds():
             game = await database_sync_to_async(lambda: Game.objects.all()[0])()
             await message.channel.send(game.name)
 
+    @client.event
+    async def on_member_join(member):
+        await member
+
+
+    @client.event
+    async def on_error(event, *args, **kwargs):
+        client.run(os.environ.get('DS_BOT_TOKEN'))
+
     client.run(os.environ.get('DS_BOT_TOKEN'))

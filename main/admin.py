@@ -3,7 +3,8 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
-from main.models import Game, Cheat, Purchase, CheatFunction, Key, Detection, Announcement, CheatImage, CheatVideo
+from main.models import Game, Cheat, Purchase, CheatFunction, Key, Detection, Announcement, CheatImage, CheatVideo, \
+    Price
 
 
 # region filters
@@ -45,12 +46,33 @@ class CheatVideoInline(admin.StackedInline):
     model = CheatVideo
 
 
+class CheatKeyInline(admin.StackedInline):
+    min_num = 0
+    extra = 0
+    can_delete = True
+    model = Key
+
+
+class CheatPriceInline(admin.StackedInline):
+    min_num = 0
+    extra = 0
+    can_delete = True
+    model = Price
+
+
+class CheatFunctionInline(admin.StackedInline):
+    min_num = 0
+    extra = 0
+    can_delete = True
+    model = CheatFunction
+
+
 @admin.register(Cheat)
 class CheatAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'game_link', 'created_at', 'updated_at')
     list_display_links = ('id', 'name')
     list_filter = ('game',)
-    inlines = (CheatImageInline, CheatVideoInline)
+    inlines = (CheatKeyInline, CheatPriceInline, CheatImageInline, CheatVideoInline, CheatFunctionInline)
 
     def game_link(self, obj):
         return mark_safe('<a href="{}">{}</a>'.format(
@@ -59,35 +81,6 @@ class CheatAdmin(admin.ModelAdmin):
         ))
 
     game_link.short_description = 'game'
-
-
-@admin.register(CheatFunction)
-class CheatFunctionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'cheat_link')
-    list_display_links = ('id', 'name')
-
-    def cheat_link(self, obj):
-        return mark_safe('<a href="{}">{}</a>'.format(
-            reverse("admin:main_cheat_change", args=(obj.cheat.id,)),
-            obj.cheat.name
-        ))
-
-    cheat_link.short_description = 'cheat'
-
-
-@admin.register(Key)
-class KeyAdmin(admin.ModelAdmin):
-    list_display = ('id', 'is_sold', 'cheat_link')
-    list_display_links = ('id', 'is_sold')
-    list_filter = ('is_sold',)
-
-    def cheat_link(self, obj):
-        return mark_safe('<a href="{}">{}</a>'.format(
-            reverse("admin:main_cheat_change", args=(obj.cheat.id,)),
-            obj.cheat.name
-        ))
-
-    cheat_link.short_description = 'cheat'
 
 
 @admin.register(Detection)

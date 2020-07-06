@@ -25,10 +25,10 @@ class Cheat(models.Model):
         ("Undetected", "Undetected"),
     )
     status = models.CharField('Status', choices=STATUS_CHOICES, max_length=24)
-    price = models.FloatField('Price')
     is_selected = models.BooleanField('Is selected', default=False)
 
-    oc_support = models.CharField('OC Support', max_length=64)
+    oc_support = models.CharField('OC Support', max_length=64, blank=True)
+    hardware_support = models.CharField('Hardware Support', max_length=64, blank=True)
 
     def __str__(self):
         return f"{self.game.name} - {self.name}"
@@ -58,10 +58,21 @@ class Key(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
 
     key = models.CharField('Key', max_length=64)
+    plan = models.CharField('Plan', max_length=64, default='30 days')
     is_sold = models.BooleanField('Is sold', blank=True, default=False)
 
     def __str__(self):
         return f"{self.cheat.name} - {self.id}"
+
+
+class Price(models.Model):
+    cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
+
+    price = models.FloatField('Price')
+    plan = models.CharField('Plan', max_length=64, default='30 days')
+
+    def __str__(self):
+        return f"{self.cheat.name} - {self.plan}"
 
 
 class Detection(models.Model):

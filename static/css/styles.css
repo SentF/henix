@@ -819,7 +819,7 @@ a.orange_whiteBG_btn:focus,
     background: #FF7B42;
     border-radius: 5px;
     padding: 5px;
-    margin-top: 5px;
+    margin-top: 0;
     margin-bottom: 5px;
     width: fit-content;
 }

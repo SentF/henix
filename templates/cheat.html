@@ -43,10 +43,11 @@
                     {% if cheat.id|quantity == 0 %}
                         <div class="out">Out of stock</div>
                     {% else %}
-                        <div class="out">In stock</div>
+                        <div class="out">{{ cheat.id|quantity }} keys in stock</div>
                     {% endif %}
                     <h2 class="title">{{ cheat.name }}</h2>
                     <p><strong>OC Support:</strong> {{ cheat.oc_support }}</p>
+                    <p><strong>Hardware Support:</strong> {{ cheat.hardware_support }}</p>
                     <p><strong>Last detection:</strong> {{ cheat.id|last_detect }}</p>
                     <p><strong>Last update:</strong> {{ cheat.updated_at.date }}</p>
                     <p><strong>Status:</strong> {{ cheat.status }}</p>
@@ -55,15 +56,15 @@
                             <div class="form-group">
                                 <select class="form-control">
                                     <option disabled selected>Choose plan</option>
-                                    <option>3 days</option>
-                                    <option>30 days</option>
-                                    <option>128 days</option>
+                                    {% for price in cheat.price_set.all %}
+                                    <option>{{ price.plan }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-3 hide-on-mobile">
                             <div class="form-group">
-                                <input type="number" class="form-control" id="" placeholder="Quantity">
+                                <input type="number" class="form-control" id="" max="{{ cheat.id|quantity }}" min="1" placeholder="Quantity">
                             </div>
                         </div>
                         <div class="col-md-2 col-4">
@@ -74,7 +75,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-4 col-12">
-                            <p class="price">Total price: {{ cheat.price }}$</p>
+                            <p class="price">Total price: $</p>
                         </div>
                     </form>
                 </div>

@@ -1,3 +1,5 @@
-Django
-django-allauth
+Django~=3.0.7
+django-allauth~=0.42.0
 Pillow
+discord~=1.0.1
+channels~=2.4.0

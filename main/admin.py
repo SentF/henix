@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
 from main.models import Game, Cheat, Purchase, CheatFunction, Key, Detection, Announcement, CheatImage, CheatVideo, \
-    Price
+    Price, DSServer
 
 
 # region filters
@@ -38,13 +38,11 @@ class CheatImageInline(admin.StackedInline):
     can_delete = True
     model = CheatImage
 
-
 class CheatVideoInline(admin.StackedInline):
     min_num = 0
     extra = 0
     can_delete = True
     model = CheatVideo
-
 
 class CheatKeyInline(admin.StackedInline):
     min_num = 0
@@ -52,13 +50,11 @@ class CheatKeyInline(admin.StackedInline):
     can_delete = True
     model = Key
 
-
 class CheatPriceInline(admin.StackedInline):
     min_num = 0
     extra = 0
     can_delete = True
     model = Price
-
 
 class CheatFunctionInline(admin.StackedInline):
     min_num = 0
@@ -66,10 +62,9 @@ class CheatFunctionInline(admin.StackedInline):
     can_delete = True
     model = CheatFunction
 
-
 @admin.register(Cheat)
 class CheatAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'game_link', 'created_at', 'updated_at')
+    list_display = ('id', 'name', 'game_link', 'created_at', 'updated_at', 'ds_server')
     list_display_links = ('id', 'name')
     list_filter = ('game',)
     inlines = (CheatKeyInline, CheatPriceInline, CheatImageInline, CheatVideoInline, CheatFunctionInline)
@@ -97,6 +92,28 @@ class DetectionAdmin(admin.ModelAdmin):
     cheat_link.short_description = 'cheat'
 
 
+
+
+@admin.register(Key)
+class KeyAdmin(admin.ModelAdmin):
+    list_display = ('id', 'cheat_link', 'purchase_link', 'plan', 'is_sold')
+    list_display_links = ('id',)
+
+    def cheat_link(self, obj):
+        return mark_safe('<a href="{}">{}</a>'.format(
+            reverse("admin:main_cheat_change", args=(obj.cheat.id,)),
+            obj.cheat.name
+        ))
+    def purchase_link(self, obj):
+        return mark_safe('<a href="{}">{}</a>'.format(
+            reverse("admin:main_purchase_change", args=(obj.purchase.id,)),
+            obj.purchase.user.username
+        ))
+
+    cheat_link.short_description = 'cheat'
+    purchase_link.short_description = 'purchase'
+
+
 @admin.register(Purchase)
 class PurchaseAdmin(admin.ModelAdmin):
     list_display = ('id', 'payment_id', 'user_link', 'cheat_link', 'payment', 'status', 'date')
@@ -113,10 +130,14 @@ class PurchaseAdmin(admin.ModelAdmin):
     user_link.admin_order_field = 'user'
 
     def cheat_link(self, obj):
-        return mark_safe('<a href="{}">{}</a>'.format(
-            reverse("admin:main_cheat_change", args=(obj.cheat.id,)),
-            obj.cheat.name
-        ))
+        keys = Key.objects.filter(purchase=obj.id)
+        if len(keys) > 0:
+            key = keys[0]
+            return mark_safe('<a href="{}">{}</a>'.format(
+                reverse("admin:main_cheat_change", args=(key.cheat.id,)),
+                key.cheat.name
+            ))
+        else: return None
 
     cheat_link.short_description = 'cheat'
 
@@ -125,4 +146,10 @@ class PurchaseAdmin(admin.ModelAdmin):
 class AnnouncementAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'created_at')
     list_display_links = ('id', 'title')
-# endregion
+
+
+@admin.register(DSServer)
+class DSServerAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'ds_server_id')
+    list_display_links = ('id',)
+#endregion

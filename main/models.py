@@ -97,7 +97,7 @@ class Purchase(models.Model):
         return choices[self.status]
 
     def __str__(self):
-        return f"{self.user.username} - {self.cheat.name}"
+        return f"{self.user.username} - {self.date.day}.{self.date.month}.{self.date.year}"
 
 
 class PurchaseDSLink(models.Model):

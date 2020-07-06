@@ -303,7 +303,7 @@ img.avatar {
     background: rgba(255, 255, 255, 0.1);
 }
 
-.orange_header .nav-item a:hover, .orange_header .nav-item a:focus{
+.orange_header .nav-item a:hover, .orange_header .nav-item a:focus {
     background-color: #fff;
     color: #FF3D00;
 }
@@ -696,7 +696,7 @@ a.orange_whiteBG_btn, .orange_whiteBG_btn {
 a.orange_whiteBG_btn:hover,
 .orange_whiteBG_btn:hover,
 a.orange_whiteBG_btn:focus,
-.orange_whiteBG_btn:focus{
+.orange_whiteBG_btn:focus {
     border: 1px solid #FF5C00;
     background: #FF5C00;
     color: #fff;
@@ -789,6 +789,20 @@ a.orange_whiteBG_btn:focus,
 .cheat-info {
     background: #FF4D00;
     padding: 120px;
+}
+
+.hack_func_card {
+    margin-bottom: 17px;
+}
+
+.btn_HFunc {
+    text-align: left;
+    padding: 4px;
+    font-size: 18px;
+}
+
+.btn_HFunc:focus {
+    box-shadow: none;
 }
 
 #images img, #images .carousel-inner {
@@ -1115,7 +1129,7 @@ a.orange_blueBG_btn:hover,
 
     .navbar .container {
         height: 40px;
-        background:  #1F2346;
+        background: #1F2346;
     }
 
     .navbar .navbar-collapse {
@@ -1123,15 +1137,15 @@ a.orange_blueBG_btn:hover,
         flex-basis: 70%;
         margin-left: auto;
         flex-grow: 0;
-        background:  #1F2346;
+        background: #1F2346;
     }
 
     .orange_header .navbar .navbar-collapse {
-        background:  #FF4D00;
+        background: #FF4D00;
     }
 
     .orange_header .navbar .container {
-        background:  #FF4D00;
+        background: #FF4D00;
     }
 
     .login_button {

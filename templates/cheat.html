@@ -90,12 +90,12 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-12">
-                    <div class="accordion" id="functions-one">
-                        {% for func in cheat.id|functions:0 %}
+                    {% for func in cheat.id|functions:0 %}
+                        <div class="accordion hack_func_card" id="functions-{{ forloop.counter }}">
                             <div class="card">
                                 <div class="card-header" id="headingOne-{{ forloop.counter }}">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        <button class="btn btn-link btn-block btn_HFunc" type="button" data-toggle="collapse"
                                                 data-target="#collapseOne-{{ forloop.counter }}" aria-expanded="true"
                                                 aria-controls="collapseOne-1">
                                             {{ func.name }}
@@ -104,22 +104,22 @@
                                 </div>
                                 <div id="collapseOne-{{ forloop.counter }}" class="collapse"
                                      aria-labelledby="headingOne-{{ forloop.counter }}"
-                                     data-parent="#functions-one">
+                                     data-parent="#functions-{{ forloop.counter }}">
                                     <div class="card-body">
                                         {{ func.description }}
                                     </div>
                                 </div>
                             </div>
-                        {% endfor %}
-                    </div>
+                        </div>
+                    {% endfor %}
                 </div>
                 <div class="col-md-6 col-12">
-                    <div class="accordion" id="functions-two">
-                        {% for func in cheat.id|functions:1 %}
+                    {% for func in cheat.id|functions:1 %}
+                        <div class="accordion hack_func_card" id="functions-{{ forloop.counter }}">
                             <div class="card">
                                 <div class="card-header" id="headingTwo-{{ forloop.counter }}">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        <button class="btn btn-link btn-block btn_HFunc" type="button" data-toggle="collapse"
                                                 data-target="#collapseTwo-{{ forloop.counter }}" aria-expanded="true"
                                                 aria-controls="collapseOne-1">
                                             {{ func.name }}
@@ -128,14 +128,14 @@
                                 </div>
                                 <div id="collapseTwo-{{ forloop.counter }}" class="collapse"
                                      aria-labelledby="headingTwo-{{ forloop.counter }}"
-                                     data-parent="#functions-two">
+                                     data-parent="#functions-{{ forloop.counter }}">
                                     <div class="card-body">
                                         {{ func.description }}
                                     </div>
                                 </div>
                             </div>
-                        {% endfor %}
-                    </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

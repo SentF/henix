@@ -35,11 +35,9 @@ def ds():
 
     @client.event
     async def on_member_join(member):
-        keys = await on_member_join_db(member)
+        keys = await get_member_keys(member)
         for key in keys:
-            print(1)
-            role = await member.guild.roles.get_role(key.cheat.ds_role_id)
-            print(2)
+            role = member.guild.get_role(key.cheat.ds_role_id)
             print(str(key.cheat.ds_role_id))
             if role != None: await member.add_roles(role)
 
@@ -51,14 +49,14 @@ def ds():
     client.run(os.environ.get('DS_BOT_TOKEN'))
 
 
-async def on_member_join_db(member):
+async def get_member_keys(member):
     allAccounts = await sync_to_async(lambda: SocialAccount.objects.all(), thread_sensitive=True)()
     for acc in allAccounts:
         if acc.extra_data['id'] == str(member.id):
             account_id = acc.extra_data['id']
             purchases = await database_sync_to_async(lambda: Purchase.objects.all(), thread_sensitive=True)()
             purchases = list(filter(lambda p: str(p.user.socialaccount_set.all()[0].uid) == account_id, purchases))
-            keys = [await database_sync_to_async(lambda: Key.objects.all(), thread_sensitive=True)() for purchase in purchases]
+            keys = [await database_sync_to_async(lambda: Key.objects.all()[0], thread_sensitive=True)() for purchase in purchases]
             return keys
         break
     return []

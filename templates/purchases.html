@@ -29,7 +29,7 @@
                             <text class="blue_text tooltip-show fast" data-toggle="tooltip" data-placement="top" title="{{ purchase.get_tooltip }}">(?)</text>
                         </div>
                         {% if purchase.status == "Paid" %}
-                        <button class="btn_key" data-key="{{ purchase.key }}"> </button>
+                        <button class="btn_key" data-key="{{ purchase.key.key }}"> </button>
                         {% endif %}
                     </div>
                     {% endfor %}

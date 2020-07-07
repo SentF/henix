@@ -3,6 +3,9 @@ from django.db import models
 from localusers.models import LocalUser
 
 
+
+
+
 class Game(models.Model):
     name = models.CharField('Name', max_length=20)
     description = models.TextField('Description', blank=True, default="")

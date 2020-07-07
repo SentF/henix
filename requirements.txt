@@ -3,3 +3,4 @@ django-allauth~=0.42.0
 Pillow
 discord~=1.0.1
 channels~=2.4.0
+requests~=2.24.0

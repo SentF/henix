@@ -118,11 +118,19 @@ class KeyAdmin(admin.ModelAdmin):
     purchase_link.short_description = 'purchase'
 
 
+class KeyInline(admin.StackedInline):
+    min_num = 0
+    extra = 0
+    can_delete = True
+    model = Key
+
+
 @admin.register(Purchase)
 class PurchaseAdmin(admin.ModelAdmin):
     list_display = ('id', 'payment_id', 'user_link', 'cheat_link', 'payment', 'status', 'date')
     list_display_links = ('id', 'payment_id')
     list_filter = ('payment', 'status', UserFilter)
+    inlines = (KeyInline,)
 
     def user_link(self, obj):
         return mark_safe('<a href="{}">{}</a>'.format(

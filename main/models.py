@@ -1,14 +1,30 @@
 import os
-
 import requests
 from allauth.socialaccount.models import SocialAccount, SocialToken
 from django.db import models
-
 from localusers.models import LocalUser
 
 
+class DSServer(models.Model):
+    name = models.CharField('Name', max_length=16, blank=True, null=True)
+    ds_server_id = models.IntegerField('Discord server ID', blank=True, null=True)
 
+    is_common = models.BooleanField('Is common', blank=True, default=False)
 
+    def __str__(self):
+        if self.name: return self.name
+        else: return self.ds_server_id
+
+    def save(self, *args, **kwargs):
+        if self.is_common:
+            for user in SocialAccount.objects.all():
+                r = requests.put(
+                    f'https://discord.com/api/guilds/{self.ds_server_id}/members/{user.extra_data["id"]}',
+                    json={'access_token': SocialToken.objects.get(account__user=user.user).token},
+                    headers={f'Authorization': f'Bot {os.environ.get("DS_BOT_TOKEN")}',
+                             'Content-Type': 'application/json'}
+                )
+        super().save(*args, **kwargs)
 
 class Game(models.Model):
     name = models.CharField('Name', max_length=20)
@@ -18,14 +34,6 @@ class Game(models.Model):
     def __str__(self):
         return self.name
 
-
-class DSServer(models.Model):
-    name = models.CharField('Name', max_length=16, blank=True, null=True)
-    ds_server_id = models.IntegerField('Discord server ID', blank=True, null=True)
-
-    def __str__(self):
-        if self.name: return self.name
-        else: return self.ds_server_id
 
 class Cheat(models.Model):
     game = models.ForeignKey("Game", verbose_name="Game", on_delete=models.SET_NULL, null=True)
@@ -45,7 +53,7 @@ class Cheat(models.Model):
     oc_support = models.CharField('OC Support', max_length=64, blank=True)
     hardware_support = models.CharField('Hardware Support', max_length=64, blank=True)
 
-    ds_server = models.ForeignKey("DSServer", verbose_name="Discord server", on_delete=models.SET_NULL, null=True, blank=True)
+    ds_server = models.ForeignKey(DSServer, verbose_name="Discord server", on_delete=models.SET_NULL, null=True, blank=True)
     ds_role_id = models.IntegerField('Discord role ID', blank=True, null=True)
 
     def __str__(self):

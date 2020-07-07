@@ -8,5 +8,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RenameField("Detection", "last_hit", "hit_at")
+        migrations.RenameField("detection", "last_hit", "hit_at")
     ]

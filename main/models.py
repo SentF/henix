@@ -87,6 +87,7 @@ class Detection(models.Model):
 class Purchase(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.SET_NULL, null=True)
     user = models.ForeignKey(LocalUser, verbose_name="User", on_delete=models.SET_NULL, null=True)
+    key = models.ForeignKey('Key', verbose_name="Key", on_delete=models.SET_NULL, null=True)
 
     date = models.DateTimeField('Date')
     PAYMENT_CHOICES = (
@@ -102,7 +103,6 @@ class Purchase(models.Model):
         ("Paid", "Paid"),
     )
     status = models.CharField('Status', choices=STATUS_CHOICES, max_length=24)
-    key = models.CharField('Key', max_length=32, blank=True)
 
     def get_color(self):
         choices = {

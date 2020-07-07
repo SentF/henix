@@ -14,13 +14,12 @@ class UserFilter(admin.SimpleListFilter):
 
     def lookups(self, request, model_admin):
         qs = model_admin.get_queryset(request)
-
         return set((pur.user.username, pur.user.username) for pur in qs)
 
     def queryset(self, request, queryset):
         if self.value() is None:
             return queryset
-        return queryset.filter(status=self.value())
+        return queryset.filter(user__username=self.value())
 
 
 # endregion
@@ -51,7 +50,6 @@ class CheatKeyInline(admin.StackedInline):
     extra = 0
     can_delete = True
     model = Key
-
 
 class CheatPriceInline(admin.StackedInline):
     min_num = 0

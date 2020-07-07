@@ -80,7 +80,7 @@ class CheatAdmin(admin.ModelAdmin):
 
 @admin.register(Detection)
 class DetectionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'cheat_link', 'last_hit')
+    list_display = ('id', 'title', 'cheat_link', 'hit_at')
     list_display_links = ('id', 'title')
 
     def cheat_link(self, obj):
@@ -92,11 +92,9 @@ class DetectionAdmin(admin.ModelAdmin):
     cheat_link.short_description = 'cheat'
 
 
-
-
 @admin.register(Key)
 class KeyAdmin(admin.ModelAdmin):
-    list_display = ('id', 'cheat_link', 'purchase_link', 'plan', 'is_sold')
+    list_display = ('id', 'cheat_link', 'purchase_link', 'duration', 'is_sold')
     list_display_links = ('id',)
 
     def cheat_link(self, obj):
@@ -105,10 +103,16 @@ class KeyAdmin(admin.ModelAdmin):
             obj.cheat.name
         ))
     def purchase_link(self, obj):
-        return mark_safe('<a href="{}">{}</a>'.format(
-            reverse("admin:main_purchase_change", args=(obj.purchase.id,)),
-            obj.purchase.user.username
-        ))
+        if obj.purchase:
+            return mark_safe('<a href="{}">{}</a>'.format(
+                reverse("admin:main_purchase_change", args=(obj.purchase.id,)),
+                obj.purchase.user.username
+            ))
+        else:
+            return None
+    def is_sold(self, obj):
+        if obj.purchase: return True
+        else: return False
 
     cheat_link.short_description = 'cheat'
     purchase_link.short_description = 'purchase'

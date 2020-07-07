@@ -9,7 +9,7 @@ register = template.Library()
 @register.filter(name='last_detect')
 def last_detect(value):
     return "None" if Cheat.objects.get(id=value).detection_set.last() is None\
-        else Cheat.objects.get(id=value).detection_set.last().last_hit.date()
+        else Cheat.objects.get(id=value).detection_set.last().hit_at.date()
 
 
 @register.filter(name='functions')

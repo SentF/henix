@@ -110,8 +110,7 @@ class Key(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
 
     key = models.CharField('Key', max_length=64)
-    plan = models.CharField('Plan', max_length=64, default='30 days')
-    is_sold = models.BooleanField('Is sold', blank=True, default=False)
+    duration = models.IntegerField('Duration in days', default='30')
 
     def __str__(self):
         return f"{self.cheat.name} - {self.id}"
@@ -131,10 +130,10 @@ class Detection(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
 
     title = models.CharField('Title', max_length=24)
-    last_hit = models.DateTimeField('Last hit', null=True, blank=True)
+    hit_at = models.DateTimeField('Hit at')
 
     def __str__(self):
-        return f"{self.cheat.name} - {self.last_hit}"
+        return f"{self.cheat.name} - {self.hit_at}"
 
 
 class Announcement(models.Model):

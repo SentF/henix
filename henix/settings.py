@@ -81,6 +81,8 @@ WSGI_APPLICATION = 'henix.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

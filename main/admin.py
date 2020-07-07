@@ -162,6 +162,6 @@ class AnnouncementAdmin(admin.ModelAdmin):
 
 @admin.register(DSServer)
 class DSServerAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'ds_server_id')
-    list_display_links = ('id',)
+    list_display = ('id', 'name', 'is_common')
+    list_display_links = ('id', 'name')
 #endregion

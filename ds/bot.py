@@ -44,9 +44,9 @@ def ds():
 
     @client.event
     async def on_error(event, *args, **kwargs):
-        client.run(os.environ.get('DS_BOT_TOKEN'))
+        client.start(os.environ.get('DS_BOT_TOKEN'))
 
-    client.run(os.environ.get('DS_BOT_TOKEN'))
+    client.start(os.environ.get('DS_BOT_TOKEN'))
 
 
 async def get_member_keys(member):

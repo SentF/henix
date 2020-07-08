@@ -79,7 +79,6 @@ class CheatVideo(models.Model):
 
 class Purchase(models.Model):
     user = models.ForeignKey(LocalUser, verbose_name="User", on_delete=models.SET_NULL, null=True)
-    key = models.ForeignKey('Key', verbose_name="Key", on_delete=models.SET_NULL, null=True)
 
     date = models.DateTimeField('Date')
     PAYMENT_CHOICES = (

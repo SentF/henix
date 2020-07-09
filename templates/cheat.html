@@ -90,7 +90,7 @@
             <div class="text-center">
                 <h2 class="title">Hack functions</h2>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 32px">
                 {% for func in cheat.cheatfunction_set.all %}
                     <div class="col-lg-6 col-12">
                         <div class="accordion hack_func_card" id="functions-{{ forloop.counter }}">
@@ -101,7 +101,7 @@
                                                 data-toggle="collapse"
                                                 data-target="#collapseOne-{{ forloop.counter }}" aria-expanded="true"
                                                 aria-controls="collapseOne-1">
-                                            {{ func.name }} <span style="margin-left: auto">A</span>
+                                            {{ func.name }} <div class="arrow_down"></div>
                                         </button>
                                     </h5>
                                 </div>

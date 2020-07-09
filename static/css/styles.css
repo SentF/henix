@@ -795,6 +795,19 @@ a.orange_whiteBG_btn:focus,
     text-align: left;
     padding: 4px;
     font-size: 18px;
+    display: grid;
+    grid-template-columns: 1fr 11px;
+    height: 36px;
+}
+
+.btn_HFunc > .arrow_down{
+    margin-right: 0;
+    margin-left: auto;
+    background-size: cover;
+    width: 11px;
+    height: 7px;
+    margin-top: 10px;
+    background-image: url("/static/images/arrow_down.svg"); /*Что за треш xD За то нормально работает, главное высоту не менять*/
 }
 
 .btn_HFunc:focus {
@@ -846,6 +859,11 @@ a.orange_whiteBG_btn:focus,
 }
 
 /* ======= Functions ======= */
+.functions {
+    padding-bottom: 64px;
+    padding-top: 16px;
+}
+
 .functions .title {
     color: white;
     margin-top: 40px;

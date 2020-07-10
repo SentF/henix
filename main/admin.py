@@ -37,11 +37,13 @@ class CheatImageInline(admin.StackedInline):
     can_delete = True
     model = CheatImage
 
+
 class CheatVideoInline(admin.StackedInline):
     min_num = 0
     extra = 0
     can_delete = True
     model = CheatVideo
+
 
 class CheatKeyInline(admin.StackedInline):
     min_num = 0
@@ -49,17 +51,20 @@ class CheatKeyInline(admin.StackedInline):
     can_delete = True
     model = Key
 
+
 class CheatPriceInline(admin.StackedInline):
     min_num = 0
     extra = 0
     can_delete = True
     model = Price
 
+
 class CheatFunctionInline(admin.StackedInline):
     min_num = 0
     extra = 0
     can_delete = True
     model = CheatFunction
+
 
 @admin.register(Cheat)
 class CheatAdmin(admin.ModelAdmin):
@@ -101,6 +106,7 @@ class KeyAdmin(admin.ModelAdmin):
             reverse("admin:main_cheat_change", args=(obj.cheat.id,)),
             obj.cheat.name
         ))
+
     def purchase_link(self, obj):
         if obj.purchase:
             return mark_safe('<a href="{}">{}</a>'.format(
@@ -109,9 +115,12 @@ class KeyAdmin(admin.ModelAdmin):
             ))
         else:
             return None
+
     def is_sold(self, obj):
-        if obj.purchase: return True
-        else: return False
+        if obj.purchase:
+            return True
+        else:
+            return False
 
     cheat_link.short_description = 'cheat'
     purchase_link.short_description = 'purchase'
@@ -148,7 +157,8 @@ class PurchaseAdmin(admin.ModelAdmin):
                 reverse("admin:main_cheat_change", args=(key.cheat.id,)),
                 key.cheat.name
             ))
-        else: return None
+        else:
+            return None
 
     cheat_link.short_description = 'cheat'
 
@@ -158,9 +168,14 @@ class AnnouncementAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'created_at')
     list_display_links = ('id', 'title')
 
+    fieldsets = (
+        (None, {'fields': ('title', 'text')}),
+        ('Button', {'fields': ('button_text', 'button_link')})
+    )
+
 
 @admin.register(DSServer)
 class DSServerAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'is_common')
     list_display_links = ('id', 'name')
-#endregion
+# endregion

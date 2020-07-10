@@ -12,8 +12,10 @@ class DSServer(models.Model):
     is_common = models.BooleanField('Is common', blank=True, default=False)
 
     def __str__(self):
-        if self.name: return self.name
-        else: return self.ds_server_id
+        if self.name:
+            return self.name
+        else:
+            return self.ds_server_id
 
     def save(self, *args, **kwargs):
         if self.is_common:
@@ -25,6 +27,7 @@ class DSServer(models.Model):
                              'Content-Type': 'application/json'}
                 )
         super().save(*args, **kwargs)
+
 
 class Game(models.Model):
     name = models.CharField('Name', max_length=20)
@@ -53,11 +56,13 @@ class Cheat(models.Model):
     oc_support = models.CharField('OC Support', max_length=64, blank=True)
     hardware_support = models.CharField('Hardware Support', max_length=64, blank=True)
 
-    ds_server = models.ForeignKey(DSServer, verbose_name="Discord server", on_delete=models.SET_NULL, null=True, blank=True)
+    ds_server = models.ForeignKey(DSServer, verbose_name="Discord server", on_delete=models.SET_NULL, null=True,
+                                  blank=True)
     ds_role_id = models.IntegerField('Discord role ID', blank=True, null=True)
 
     def __str__(self):
         return f"{self.game.name} - {self.name}"
+
 
 class CheatFunction(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
@@ -68,9 +73,11 @@ class CheatFunction(models.Model):
     def __str__(self):
         return f"{self.cheat.name} - {self.name}"
 
+
 class CheatImage(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
     image = models.ImageField("Image", upload_to="cheat_images")
+
 
 class CheatVideo(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
@@ -117,15 +124,17 @@ class Purchase(models.Model):
     def save(self, *args, **kwargs):
         if self.key_set.count() != 0:
             if self.key_set.all()[0].cheat.ds_server is not None:
-                r = requests.put(f'https://discord.com/api/guilds/{self.key_set.all()[0].cheat.ds_server.ds_server_id}/members/{SocialAccount.objects.get(user=self.user).extra_data["id"]}',
-                                 json={'access_token': SocialToken.objects.get(account__user=self.user).token},
-                                 headers={f'Authorization': f'Bot {os.environ.get("DS_BOT_TOKEN")}',
-                                          'Content-Type': 'application/json'})
+                r = requests.put(
+                    f'https://discord.com/api/guilds/{self.key_set.all()[0].cheat.ds_server.ds_server_id}/members/{SocialAccount.objects.get(user=self.user).extra_data["id"]}',
+                    json={'access_token': SocialToken.objects.get(account__user=self.user).token},
+                    headers={f'Authorization': f'Bot {os.environ.get("DS_BOT_TOKEN")}',
+                             'Content-Type': 'application/json'})
         super().save(*args, **kwargs)
+
 
 class PurchaseDSLink(models.Model):
     purchase = models.ForeignKey("Purchase", verbose_name="Purchase", on_delete=models.CASCADE)
-    ds_link = models.CharField("Server link", max_length=32) # or 25
+    ds_link = models.CharField("Server link", max_length=32)  # or 25
 
 
 class Key(models.Model):
@@ -163,6 +172,9 @@ class Announcement(models.Model):
     created_at = models.DateTimeField('Creation date', auto_now_add=True, blank=True)
     title = models.CharField('Title', max_length=20)
     text = models.TextField('Text')
+
+    button_text = models.CharField('Button text', max_length=32, blank=True, default='')
+    button_link = models.CharField('Button link', max_length=128, blank=True, default='')
 
     def __str__(self):
         return f"{self.title}"

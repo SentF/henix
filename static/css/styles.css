@@ -496,6 +496,10 @@ img.avatar {
     width: 2000px;
 }
 
+.announcements .btn {
+    margin-top: 20px;
+}
+
 .cards li {
     list-style-type: none;
     border-color: #1A1D3D;
@@ -1224,11 +1228,7 @@ a.orange_blueBG_btn:hover,
     }
 
     .announcements .card { /* TODO fix that */
-        width: 250px;
-    }
-
-    .announcements .card {
-        width: 265px;
+        width: 83vw;
     }
 
     .cards_end {

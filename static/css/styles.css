@@ -832,6 +832,10 @@ a.orange_whiteBG_btn:focus,
     margin-bottom: 10px;
 }
 
+.card-body > p {
+    margin-bottom: 0;
+}
+
 .out {
     color: #FFFFFF;
     background: #FF7B42;

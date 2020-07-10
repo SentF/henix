@@ -109,7 +109,7 @@
                                      aria-labelledby="headingOne-{{ forloop.counter }}"
                                      data-parent="#functions-{{ forloop.counter }}">
                                     <div class="card-body">
-                                        {{ func.description }}
+                                        {{ func.description|linebreaks }}
                                     </div>
                                 </div>
                             </div>

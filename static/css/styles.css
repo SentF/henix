@@ -800,7 +800,7 @@ a.orange_whiteBG_btn:focus,
     height: 36px;
 }
 
-.btn_HFunc > .arrow_down{
+.btn_HFunc > .func-arrow {
     margin-right: 0;
     margin-left: auto;
     background-size: cover;
@@ -808,6 +808,15 @@ a.orange_whiteBG_btn:focus,
     height: 7px;
     margin-top: 10px;
     background-image: url("/static/images/arrow_down.svg"); /*Что за треш xD За то нормально работает, главное высоту не менять*/
+    transform: rotate(180deg);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.btn_HFunc.collapsed > .func-arrow {
+    transform: rotate(0deg);
 }
 
 .btn_HFunc:focus {

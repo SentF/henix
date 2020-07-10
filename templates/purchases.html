@@ -21,15 +21,15 @@
                     <div class="purchase val">
                         <text class="orange_text tooltip-show slow" data-toggle="tooltip" data-placement="top" title="{{ purchase.payment_id }}">ID</text>
                         <text>{{ purchase.date }}</text>
-                        <text>{{ purchase.cheat.name }}</text>
-                        <text>{{ purchase.cheat.game.name }}</text>
+                        <text>{{ purchase.key_set.first.cheat.name }}</text>
+                        <text>{{ purchase.key_set.first.cheat.game.name }}</text>
                         <text>{{ purchase.payment }}</text>
                         <div>
                             <text class="{{ purchase.get_color }}">{{ purchase.status }}</text>
                             <text class="blue_text tooltip-show fast" data-toggle="tooltip" data-placement="top" title="{{ purchase.get_tooltip }}">(?)</text>
                         </div>
                         {% if purchase.status == "Paid" %}
-                        <button class="btn_key" data-key="{{ purchase.key.key }}"> </button>
+                        <button class="btn_key" data-key="{% for key in purchase.key_set.all %}{{ key.key }}|nextkey|{% endfor %}"> </button>
                         {% endif %}
                     </div>
                     {% endfor %}

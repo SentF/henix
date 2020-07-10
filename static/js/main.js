@@ -1,13 +1,22 @@
 $(document).ready(function () {
     $('.btn_key').click(function () {
+        let keys = $(this).attr('data-key').split("|nextkey|")
+        keys.splice(-1,1)
+        let keysString = ""
+        for (let key in keys) {
+            keysString += `
+                <div class="fake_input btn-block">
+                    <text style="text-align: left; font-size: 16px; margin-left: 8px" class="blue_text">${keys[key]}</text>
+                    <button onclick="copy('${keys[key]}')" class="copy_icon"></button>
+                </div>            
+            `
+        }
+
         Swal.fire({
             html:
                 `<p class="title_swal">Thank you for buying</p>
                 <p class="text_swal"> Get the key to activate the hack.</p>
-                <div class="fake_input btn-block">
-                    <text style="text-align: left; font-size: 16px; margin-left: 8px" class="blue_text">${$(this).attr('data-key')}</text>
-                    <button onclick="copy()" class="copy_icon"></button>
-                </div>
+                ${keysString}
                 <button onclick="closeSwal()" class="confirm_swal btn-block">Done</button>`
             ,
             showConfirmButton: false,
@@ -57,14 +66,13 @@ $(document).ready(function () {
     $('.tooltip-show.slow').tooltip({delay: { "show": 0, "hide": 3000 }, html: true});
 });
 
-function copy() {
+function copy(text) {
     if ($('#tmp').length) {
         $('#tmp').remove();
     }
-    var clickText = $(this).text();
     $('<textarea id="tmp" />')
         .appendTo($('.swal2-container'))
-        .val($('.swal2-container text').text())
+        .val(text)
         .focus()
         .select();
     document.execCommand("copy");

@@ -101,7 +101,7 @@ function copy(text) {
 
 function pay() {
     const data = {
-        duration: $('#duration').val(),
+        duration: $('#duration option:selected').text().split(' ')[0],
         quantity: $('#quantity').val() || 1,
         email: $('#email').val(),
         payment: $('input[name="payment_methods"]:checked').val()

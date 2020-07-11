@@ -869,6 +869,42 @@ a.orange_whiteBG_btn:focus,
     justify-content: center;
 }
 
+.cheat_interaction {
+    width: 500px;
+    height: 47px;
+    display: grid;
+    grid-template-columns: 167px 100px 47px 1fr;
+    grid-column-gap: 17px;
+    color: #000 !important;
+}
+
+.cheat_interaction > * > * {
+    height: 47px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+
+}
+
+.cheat_interaction #btn_buy {
+    width: 47px;
+    background-size: cover;
+    padding: 12px;
+}
+
+.cheat_interaction #btn_buy > div {
+    width: 21px;
+    height: 21px;
+    background-image: url("/static/images/cart.svg");
+    background-size: cover;
+}
+
+.cheat_interaction .price {
+    font-style: normal;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
 .youtube {
     width: 450px;
     height: 245px;
@@ -1317,6 +1353,24 @@ a.orange_blueBG_btn:hover,
         border-bottom: none;
     }
 
+    .cheat_interaction {
+        width: 100%;
+        height: 47px;
+        display: grid;
+        grid-template-columns: 1fr 47px;
+        grid-column-gap: 15px;
+    }
+
+     .cheat_interaction > div {
+         margin-bottom: 4px;
+     }
+
+    .cheat_interaction > div:last-child {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        justify-content: center;
+    }
+
     .description_item, .description_value {
         text-align: left;
         margin-left: 20px;
@@ -1337,7 +1391,7 @@ a.orange_blueBG_btn:hover,
     }
 
     .cheat-info {
-        padding: 100px 0 0;
+        padding: 100px 0 64px;
     }
 
     .hide-on-mobile {

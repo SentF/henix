@@ -51,31 +51,25 @@
                     <p><strong>Last detection:</strong> {{ cheat.id|last_detect }}</p>
                     <p><strong>Last update:</strong> {{ cheat.updated_at.date }}</p>
                     <p><strong>Status:</strong> {{ cheat.status }}</p>
-                    <form class="row">
-                        <div class="col-md-3 col-8">
-                            <div class="form-group">
-                                <select class="form-control">
-                                    <option disabled selected>Choose plan</option>
-                                    {% for price in cheat.price_set.all %}
-                                        <option>{{ price.plan }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
+                    <form class="cheat_interaction">
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option disabled selected>Choose plan</option>
+                                {% for price in cheat.price_set.all %}
+                                    <option>{{ price.plan }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
-                        <div class="col-md-3 hide-on-mobile">
-                            <div class="form-group">
-                                <input type="number" class="form-control" id="" max="{{ cheat.id|quantity }}" min="1"
-                                       placeholder="Quantity">
-                            </div>
+                        <div class="form-group hide-on-mobile">
+                            <input type="number" class="form-control" id="" max="{{ cheat.id|quantity }}" min="1"
+                                   placeholder="Quantity">
                         </div>
-                        <div class="col-md-2 col-4">
-                            <div class="form-group">
-                                <button id="btn_buy" type="button" class="btn btn-cta-orange">
-                                    <img alt="" src="/static/images/cart.svg">
-                                </button>
-                            </div>
+                        <div class="form-group">
+                            <button id="btn_buy" type="button" class="btn btn-cta-orange">
+                                <div></div>
+                            </button>
                         </div>
-                        <div class="form-group col-md-4 col-12">
+                        <div class="form-group">
                             <p class="price">Total price: $</p>
                         </div>
                     </form>

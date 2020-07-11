@@ -1096,6 +1096,11 @@ a.orange_blueBG_btn:hover,
     border: #FF5C00
 }
 
+.confirm_swal.disabled {
+    background: #ff8544;
+    border: #ff8544;
+}
+
 .input_swal {
     background: #191C3A;
     color: white;

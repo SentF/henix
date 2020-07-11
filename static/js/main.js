@@ -1,15 +1,19 @@
 $(document).ready(function () {
     $('#duration').on({
-        change: () => {$('#price').text(price())}
+        change: () => {
+            $('#price').text(price())
+        }
     })
 
     $('#quantity').on({
-        change: () => {$('#price').text(price())}
+        change: () => {
+            $('#price').text(price())
+        }
     })
 
     $('.btn_key').click(function () {
         let keys = $(this).attr('data-key').split("|nextkey|")
-        keys.splice(-1,1)
+        keys.splice(-1, 1)
         let keysString = ""
         for (let key in keys) {
             keysString += `
@@ -45,7 +49,7 @@ $(document).ready(function () {
                 <p style="margin-bottom: 0" class="text_swal"> Select payment method.</p>
                 <div class="payment_methods"> 
                     <div>
-                        <input type="radio" id="bitcoin" value="bitcoin" name="payment_methods"/>
+                        <input type="radio" checked id="bitcoin" value="bitcoin" name="payment_methods"/>
                         <label  class="payment_method bitcoin_method" for="bitcoin" ></label>
                     </div>
                     <div>
@@ -57,8 +61,8 @@ $(document).ready(function () {
                         <label style="" class="payment_method credit_card_method" for="credit_card" ></label>
                     </div>
                 </div>
-                <input type="email" class="form-control input_swal btn-block" id="exampleFormControlInput1" placeholder="name@example.com">
-                <button onclick="pay()" class="confirm_swal btn-block">Pay</button>`
+                <input type="email" class="form-control input_swal btn-block" id="email" placeholder="name@example.com">
+                <button onclick="pay()" class="confirm_swal btn-block disabled" id="pay">Pay</button>`
             ,
             showConfirmButton: false,
             showCloseButton: false,
@@ -69,11 +73,18 @@ $(document).ready(function () {
             background: '#1F2346',
         });
         $('.swal2-show').addClass("swal_updater");
-    });
 
-    $('.tooltip-show.fast').tooltip({delay: { "show": 0, "hide": 0 }, html: true});
-    $('.tooltip-show.slow').tooltip({delay: { "show": 0, "hide": 3000 }, html: true});
+        $('#email').on({
+            change: e => {
+                if ($(e.target).val()) $('#pay').removeClass('disabled')
+                else $('#pay').addClass('disabled')
+            }
+        });
+    })
 });
+
+$('.tooltip-show.fast').tooltip({delay: {"show": 0, "hide": 0}, html: true});
+$('.tooltip-show.slow').tooltip({delay: {"show": 0, "hide": 3000}, html: true});
 
 function copy(text) {
     if ($('#tmp').length) {
@@ -89,7 +100,17 @@ function copy(text) {
 }
 
 function pay() {
+    const data = {
+        duration: $('#duration').val(),
+        quantity: $('#quantity').val() || 1,
+        email: $('#email').val(),
+        payment: $('input[name="payment_methods"]:checked').val()
+    };
 
+    const params = jQuery.param(data);
+    let url = window.location.href;
+    url = url.split('?')[0];
+    window.location.href = `${url}buy?${params}`
 }
 
 function price() {

@@ -1,4 +1,12 @@
 $(document).ready(function () {
+    $('#duration').on({
+        change: () => {$('#price').text(price())}
+    })
+
+    $('#quantity').on({
+        change: () => {$('#price').text(price())}
+    })
+
     $('.btn_key').click(function () {
         let keys = $(this).attr('data-key').split("|nextkey|")
         keys.splice(-1,1)
@@ -17,7 +25,7 @@ $(document).ready(function () {
                 `<p class="title_swal">Thank you for buying</p>
                 <p class="text_swal"> Get the key to activate the hack.</p>
                 ${keysString}
-                <button onclick="closeSwal()" class="confirm_swal btn-block">Done</button>`
+                <button onclick="Swal.close()" class="confirm_swal btn-block">Done</button>`
             ,
             showConfirmButton: false,
             showCloseButton: false,
@@ -31,6 +39,7 @@ $(document).ready(function () {
     });
 
     $('#btn_buy').click(function () {
+        if ($(this).hasClass("disabled")) return
         Swal.fire({
             html: `<p class="title_swal">Payment</p>
                 <p style="margin-bottom: 0" class="text_swal"> Select payment method.</p>
@@ -79,10 +88,11 @@ function copy(text) {
     $('#tmp').remove()
 }
 
-function closeSwal() {
-    Swal.close()
-}
-
 function pay() {
 
+}
+
+function price() {
+    if ($('#duration').val()) $('#btn_buy').removeClass("disabled")
+    return $('#duration').val() * ($('#quantity').val() || 1)
 }

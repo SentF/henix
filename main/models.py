@@ -152,10 +152,10 @@ class Price(models.Model):
     cheat = models.ForeignKey("Cheat", verbose_name="Cheat", on_delete=models.CASCADE)
 
     price = models.FloatField('Price')
-    plan = models.CharField('Plan', max_length=64, default='30 days')
+    duration = models.IntegerField('Duration in days', default='30')
 
     def __str__(self):
-        return f"{self.cheat.name} - {self.plan}"
+        return f"{self.cheat.name} - {self.duration}"
 
 
 class Detection(models.Model):

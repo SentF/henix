@@ -870,7 +870,6 @@ a.orange_whiteBG_btn:focus,
 }
 
 .cheat_interaction {
-    width: 500px;
     height: 47px;
     display: grid;
     grid-template-columns: 167px 100px 47px 1fr;

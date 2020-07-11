@@ -53,24 +53,24 @@
                     <p><strong>Status:</strong> {{ cheat.status }}</p>
                     <form class="cheat_interaction">
                         <div class="form-group">
-                            <select class="form-control">
+                            <select class="form-control" id="duration">
                                 <option disabled selected>Choose plan</option>
                                 {% for price in cheat.price_set.all %}
-                                    <option>{{ price.plan }}</option>
+                                    <option value="{{ price.price }}">{{ price.duration }} days</option>
                                 {% endfor %}
                             </select>
                         </div>
                         <div class="form-group hide-on-mobile">
-                            <input type="number" class="form-control" id="" max="{{ cheat.id|quantity }}" min="1"
-                                   placeholder="Quantity">
+                            <input type="number" class="form-control" id="quantity" max="{{ cheat.id|quantity }}"
+                                       min="1" placeholder="Quantity">
                         </div>
                         <div class="form-group">
-                            <button id="btn_buy" type="button" class="btn btn-cta-orange">
+                            <button id="btn_buy" type="button" class="btn btn-cta-orange disabled">
                                 <div></div>
                             </button>
                         </div>
                         <div class="form-group">
-                            <p class="price">Total price: $</p>
+                            <p class="price">Total price: <span id="price">0</span>$</p>
                         </div>
                     </form>
                 </div>

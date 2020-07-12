@@ -840,15 +840,25 @@ a.orange_whiteBG_btn:focus,
     margin-bottom: 0;
 }
 
-.out {
+.keys_statuses {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 7fr;
+    grid-column-gap: 5px;
+}
+
+.keys_statuses > * {
     color: #FFFFFF;
     background: #FF7B42;
     border-radius: 5px;
     padding: 5px;
-    margin-top: 0;
-    margin-bottom: 5px;
     width: fit-content;
+    white-space: nowrap;
 }
+
+.keys_statuses > .error {
+    background: #db2828;
+}
+
 
 .cheat-info p {
     color: #ffffff;
@@ -1396,6 +1406,14 @@ a.orange_blueBG_btn:hover,
 
     .cheat-info {
         padding: 100px 0 64px;
+    }
+
+    .keys_statuses {
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+
+        margin-top: 12px;
+        margin-bottom: 6px;
     }
 
     .hide-on-mobile {

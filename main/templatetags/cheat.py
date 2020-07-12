@@ -25,3 +25,8 @@ def functions(value, split):
 @register.filter(name='quantity')
 def quantity(value):
     return Cheat.objects.get(id=value).key_set.filter(purchase=None).count()
+
+
+@register.filter(name='getparam')
+def getparam(request, name):
+    return request.GET.get(name)

@@ -40,11 +40,16 @@
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-12">
-                    {% if cheat.id|quantity == 0 %}
-                        <div class="out">Out of stock</div>
-                    {% else %}
-                        <div class="out">{{ cheat.id|quantity }} keys in stock</div>
-                    {% endif %}
+                    <div class="keys_statuses">
+                        {% if cheat.id|quantity == 0 %}
+                            <span class="out">Out of stock</span>
+                        {% else %}
+                            <span class="out">{{ cheat.id|quantity }} keys in stock</span>
+                        {% endif %}
+                        {% if request|getparam:'error' == 'OutOfStock' %}
+                            <span class="error">Not enough keys of the selected plan</span>
+                        {% endif %}
+                    </div>
                     <h2 class="title">{{ cheat.name }}</h2>
                     <p><strong>OC Support:</strong> {{ cheat.oc_support }}</p>
                     <p><strong>Hardware Support:</strong> {{ cheat.hardware_support }}</p>
@@ -62,7 +67,7 @@
                         </div>
                         <div class="form-group hide-on-mobile">
                             <input type="number" class="form-control" id="quantity" max="{{ cheat.id|quantity }}"
-                                       min="1" placeholder="Quantity">
+                                   min="1" placeholder="Quantity">
                         </div>
                         <div class="form-group">
                             <button id="btn_buy" type="button" class="btn btn-cta-orange disabled">
@@ -95,7 +100,8 @@
                                                 data-toggle="collapse"
                                                 data-target="#collapseOne-{{ forloop.counter }}" aria-expanded="true"
                                                 aria-controls="collapseOne-1">
-                                            {{ func.name }} <div class="func-arrow"></div>
+                                            {{ func.name }}
+                                            <div class="func-arrow"></div>
                                         </button>
                                     </h5>
                                 </div>

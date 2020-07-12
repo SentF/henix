@@ -30,6 +30,7 @@ def ds():
     @bot.event
     async def on_member_join(member):
         allAccounts = await bot.loop.run_in_executor(None, SocialAccount.objects.all)
+        keys = []
         for acc in allAccounts:
             if acc.extra_data['id'] == str(member.id):
                 account_id = acc.extra_data['id']

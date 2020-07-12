@@ -100,6 +100,7 @@ function copy(text) {
 }
 
 function pay() {
+    if ($('#pay').hasClass("disabled")) return
     const data = {
         duration: $('#duration option:selected').text().split(' ')[0],
         quantity: $('#quantity').val() || 1,

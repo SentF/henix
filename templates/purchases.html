@@ -18,7 +18,7 @@
                         <text>Status</text>
                     </div>
                     {% for purchase in purchases %}
-                    <div class="purchase val">
+                    <div class="purchase val" id="{{ purchase.payment_id }}">
                         <text class="orange_text tooltip-show slow" data-toggle="tooltip" data-placement="top" title="{{ purchase.payment_id }}">ID</text>
                         <text>{{ purchase.date }}</text>
                         <text>{{ purchase.key_set.first.cheat.name }}</text>
@@ -30,6 +30,12 @@
                         </div>
                         {% if purchase.status == "Paid" %}
                         <button class="btn_key" data-key="{% for key in purchase.key_set.all %}{{ key.key }}|nextkey|{% endfor %}"> </button>
+                        {% endif %}
+                        {% if purchase.status == "Pending" %}
+                        <button class="btn_pay" method="{{ purchase.payment_method }}"
+                            {% if purchase.payment_method == "Bitcoin" %} address="{{ purchase.payment.bitcoin.address }}" cost="{{ purchase.payment.cost }}" {% endif %}
+                        >
+                        </button>
                         {% endif %}
                     </div>
                     {% endfor %}

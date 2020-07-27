@@ -93,7 +93,7 @@ class Purchase(models.Model):
         ("Bitcoin", "Bitcoin"),
         ("PayPal", "PayPal")
     )
-    payment = models.CharField('Payment method', choices=PAYMENT_CHOICES, max_length=16)
+    payment_method = models.CharField('Payment method', choices=PAYMENT_CHOICES, max_length=16)
     payment_id = models.CharField('Payment id', max_length=64)
     STATUS_CHOICES = (
         ("Unpaid", "Unpaid"),
@@ -146,6 +146,10 @@ class Key(models.Model):
 
     def __str__(self):
         return f"{self.cheat.name} - {self.id}"
+
+    @property
+    def price(self):
+        return self.cheat.price_set.get(duration=self.duration).price
 
 
 class Price(models.Model):

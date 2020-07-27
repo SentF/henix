@@ -81,10 +81,50 @@ $(document).ready(function () {
             }
         });
     })
+
+    $('.btn_pay').click(function () {
+        if ($(this).attr('method') == "Bitcoin") btc_payment($(this).attr('address'), $(this).attr('cost'))
+    })
+
+    let payment_id = new URLSearchParams(window.location.search).get('open')
+    if (payment_id != null) {
+        $('#' + payment_id).children('button').click()
+    }
 });
 
 $('.tooltip-show.fast').tooltip({delay: {"show": 0, "hide": 0}, html: true});
 $('.tooltip-show.slow').tooltip({delay: {"show": 0, "hide": 3000}, html: true});
+
+function btc_payment(address, cost) {
+    Swal.fire({
+        html: `<p class="title_swal">Processing...</p>
+            <p style="margin-bottom: 0" class="text_swal">Payment Data:</p>
+            <div class="payment_methods"> 
+                <div>
+                    <input type="radio" checked id="bitcoin" value="bitcoin" name="payment_methods"/>
+                    <label  class="payment_method bitcoin_method" for="bitcoin" ></label>
+                </div>
+                <div>
+                    <input type="radio" id="paypal" value="paypal" name="payment_methods" />
+                    <label class="payment_method paypal_method" for="paypal" ></label>
+                </div>
+                <div>
+                    <input type="radio" id="credit_card" value="credit_card" name="payment_methods" />
+                    <label style="" class="payment_method credit_card_method" for="credit_card" ></label>
+                </div>
+            </div>
+            <input type="email" class="form-control input_swal btn-block" id="email" placeholder="name@example.com">
+            <button onclick="pay()" class="confirm_swal btn-block disabled" id="pay">Pay</button>`
+        ,
+        showConfirmButton: false,
+        showCloseButton: false,
+        showCancelButton: false,
+        focusConfirm: false,
+        padding: "28px",
+        width: 424,
+        background: '#1F2346',
+    });
+}
 
 function copy(text) {
     if ($('#tmp').length) {
@@ -105,7 +145,7 @@ function pay() {
         duration: $('#duration option:selected').text().split(' ')[0],
         quantity: $('#quantity').val() || 1,
         email: $('#email').val(),
-        payment: $('input[name="payment_methods"]:checked').val()
+        method: $('input[name="payment_methods"]:checked').val()
     };
 
     const params = jQuery.param(data);

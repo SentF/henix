@@ -1,14 +1,29 @@
+from datetime import datetime
 from django.shortcuts import redirect
 
-from main.models import Key, Price
+from paymentSystems.bitgo import *
+from paymentSystems.models import *
 
 
 def buy(request, cheat):
     keys = Key.objects.filter(cheat__id=cheat, purchase=None, duration=int(request.GET.get('duration')))
-    if len(keys) < int(request.GET.get('quantity')):
+    if len(keys) <= int(request.GET.get('quantity')):
         return redirect(f'/cheats/{cheat}/?error=OutOfStock')
 
-    price = Price.objects.get(cheat__id=cheat, duration=int(request.GET.get('duration')))
+    key_price = Price.objects.get(cheat__id=cheat, duration=int(request.GET.get('duration')))
+    price = key_price.price*int(request.GET.get('quantity')) #Final price
 
-    print(price.price*int(request.GET.get('quantity')))
-    return redirect(f'/cheats/{keys[0].cheat.id}')
+    method = request.GET.get('method')
+
+    purchase = Purchase(user = request.user, date=datetime.now(), payment_method=method, status="Pending")
+    purchase.save()
+    if method == "Bitcoin":
+        bitgo = Bitgo()
+        wallet = bitgo.get_wallet()
+
+        address = wallet.create_address()
+
+        purchase.payment.bitcoin = BitcoinPayment(address=address)
+        purchase.payment.bitcoin.save()
+
+    return redirect(f'/purchases/?open={purchase.id}')

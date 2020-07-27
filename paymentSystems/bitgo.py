@@ -1,9 +1,11 @@
+import os
+
 import requests
 from django.contrib.sites.models import Site
 
 
 class Bitgo:
-    def __init__(self, token):
+    def __init__(self, token=os.environ.get('BITGO_TOKEN')):
         self.api_url = "https://app.bitgo-test.com/api/v2"
         self.token = token
 
@@ -15,7 +17,7 @@ class Bitgo:
             headers={f'Authorization': f'Bearer {self.token}',
                      'Content-Type': 'application/json'})
 
-    def get_wallet(self, coin, id):
+    def get_wallet(self, coin='btc', id=os.environ.get('WALLET_ID')):
         return self.Wallet(coin, id, self)
 
 

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.discord',
     'main',
     'ds',
+    'paymentSystems',
 ]
 
 SITE_ID = 1

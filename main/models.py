@@ -1,6 +1,7 @@
 import os
 import requests
 from allauth.socialaccount.models import SocialAccount, SocialToken
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 from localusers.models import LocalUser
 
@@ -122,13 +123,17 @@ class Purchase(models.Model):
         return f"{self.user.username} - {self.date.day}.{self.date.month}.{self.date.year}"
 
     def save(self, *args, **kwargs):
-        if self.key_set.count() != 0:
-            if self.key_set.all()[0].cheat.ds_server is not None:
-                r = requests.put(
-                    f'https://discord.com/api/guilds/{self.key_set.all()[0].cheat.ds_server.ds_server_id}/members/{SocialAccount.objects.get(user=self.user).extra_data["id"]}',
-                    json={'access_token': SocialToken.objects.get(account__user=self.user).token},
-                    headers={f'Authorization': f'Bot {os.environ.get("DS_BOT_TOKEN")}',
-                             'Content-Type': 'application/json'})
+        try:
+            if self.key_set.count() != 0:
+                if self.key_set.all()[0].cheat.ds_server is not None:
+                    r = requests.put(
+                        f'https://discord.com/api/guilds/{self.key_set.all()[0].cheat.ds_server.ds_server_id}/members/{SocialAccount.objects.get(user=self.user).extra_data["id"]}',
+                        json={'access_token': SocialToken.objects.get(account__user=self.user).token},
+                        headers={f'Authorization': f'Bot {os.environ.get("DS_BOT_TOKEN")}',
+                                 'Content-Type': 'application/json'})
+        except ObjectDoesNotExist:
+            pass
+
         super().save(*args, **kwargs)
 
 

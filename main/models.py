@@ -112,8 +112,8 @@ class Purchase(models.Model):
 
     def get_tooltip(self):
         choices = {
-            'Unpaid': 'Not paid yet. Please paid to get this.',
-            'Pending': 'Payment pending.',
+            'Unpaid': 'Canceled',
+            'Pending': 'Not paid yet. Please paid to get this.',
             'Paid': 'You can get and activate key'
         }
         return choices[self.status]

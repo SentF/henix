@@ -6,8 +6,10 @@ from django.utils.translation import ugettext_lazy as _
 from main.models import Game, Cheat, Purchase, CheatFunction, Key, Detection, Announcement, CheatImage, CheatVideo, \
     Price, DSServer
 
-
 # region filters
+from paymentSystems.models import Payment
+
+
 class UserFilter(admin.SimpleListFilter):
     title = _('user')
     parameter_name = 'user'
@@ -64,6 +66,14 @@ class CheatFunctionInline(admin.StackedInline):
     extra = 0
     can_delete = True
     model = CheatFunction
+
+
+class PaymentInline(admin.StackedInline):
+    min_num = 1
+    max_num = 1
+    extra = 0
+    can_delete = False
+    model = Payment
 
 
 @admin.register(Cheat)
@@ -133,12 +143,23 @@ class KeyInline(admin.StackedInline):
     model = Key
 
 
+def unpaid(modeladmin, request, queryset):
+    for p in queryset:
+        p.status = "Unpaid"
+        for key in p.key_set.all():
+            key.purchase = None
+
+
+unpaid.short_description = "Mark selected as unpaid"
+
+
 @admin.register(Purchase)
 class PurchaseAdmin(admin.ModelAdmin):
     list_display = ('id', 'payment_id', 'user_link', 'cheat_link', 'payment', 'status', 'date')
     list_display_links = ('id', 'payment_id')
     list_filter = ('payment', 'status', UserFilter)
-    inlines = (KeyInline,)
+    inlines = (PaymentInline, KeyInline)
+    actions = (unpaid,)
 
     def user_link(self, obj):
         return mark_safe('<a href="{}">{}</a>'.format(

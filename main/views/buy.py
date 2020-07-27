@@ -10,13 +10,15 @@ def buy(request, cheat):
     if len(keys) <= int(request.GET.get('quantity')):
         return redirect(f'/cheats/{cheat}/?error=OutOfStock')
 
-    key_price = Price.objects.get(cheat__id=cheat, duration=int(request.GET.get('duration')))
-    price = key_price.price*int(request.GET.get('quantity')) #Final price
 
     method = request.GET.get('method')
 
-    purchase = Purchase(user = request.user, date=datetime.now(), payment_method=method, status="Pending")
+    purchase = Purchase(user=request.user, date=datetime.now(), payment_method=method, status="Pending")
     purchase.save()
+
+    for _ in range(int(request.GET.get('quantity'))):
+        purchase.key_set.add(Key.objects.filter(purchase=None, duration=int(request.GET.get('duration'))).first())
+
     if method == "Bitcoin":
         bitgo = Bitgo()
         wallet = bitgo.get_wallet()

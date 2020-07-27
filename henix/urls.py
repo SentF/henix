@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^account/', include('allauth.socialaccount.providers.discord.urls')),
     url(r'^account/logout/', logout, name="account_logout"),
     path('', include('main.urls')),
+    path('payment/', include('paymentSystems.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

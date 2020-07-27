@@ -67,7 +67,6 @@
                 {% if request.user.is_authenticated %}
                 <div class="dropdown-divider"></div>
                 <li class="nav-item hide-on-pc"><a class="dropdown-item" href="{% url 'purchases' %}">History</a></li>
-                <li class="nav-item hide-on-pc"><a class="dropdown-item" href="/purchase">Purchase</a></li>
                 {% if request.user.is_superuser %}
                     <li class="nav-item hide-on-pc"><a class="dropdown-item" href="{% url 'admin:index' %}">Admin Panel</a></li>
                 {% endif %}
@@ -84,7 +83,6 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{% url 'purchases' %}">History</a>
-                            <a class="dropdown-item" href="/purchase">Purchase</a>
                             {% if request.user.is_superuser %}
                                 <a class="dropdown-item" href="{% url 'admin:index' %}">Admin Panel</a>
                             {% endif %}

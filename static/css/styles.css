@@ -1037,8 +1037,7 @@ a.orange_blueBG_btn:hover,
     margin-bottom: 20px;
 }
 
-.btn_key {
-    background-image: url("/static/images/key.svg");
+.sh_hi_btn {
     height: 39px;
     width: 39px;
     margin-right: 0;
@@ -1046,6 +1045,15 @@ a.orange_blueBG_btn:hover,
     border: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    background-repeat: no-repeat;
+}
+
+.btn_key {
+    background-image: url("/static/images/key.svg");
+}
+
+.btn_pay {
+    background-image: url("/static/images/payment.svg");
 }
 
 .positive_text {

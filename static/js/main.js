@@ -49,7 +49,7 @@ $(document).ready(function () {
                 <p style="margin-bottom: 0" class="text_swal"> Select payment method.</p>
                 <div class="payment_methods"> 
                     <div>
-                        <input type="radio" checked id="bitcoin" value="bitcoin" name="payment_methods"/>
+                        <input type="radio" checked id="bitcoin" value="Bitcoin" name="payment_methods"/>
                         <label  class="payment_method bitcoin_method" for="bitcoin" ></label>
                     </div>
                     <div>
@@ -102,11 +102,11 @@ function btc_payment(address, cost) {
             <p class="text_swal"> Get the key to activate the hack.</p>
             <div class="fake_input btn-block">
                 <text style="text-align: left; font-size: 16px; margin-left: 8px" class="blue_text">${address}</text>
-                <button onclick="copy('${keys[key]}')" class="copy_icon"></button>
+                <button onclick="copy('${address}')" class="copy_icon"></button>
             </div>     
             <div class="fake_input btn-block">
                 <text style="text-align: left; font-size: 16px; margin-left: 8px" class="blue_text">${cost}</text>
-                <button onclick="copy('${keys[key]}')" class="copy_icon"></button>
+                <button onclick="copy('${cost}')" class="copy_icon"></button>
             </div>     
             <button onclick="Swal.close()" class="confirm_swal btn-block">Close</button>`
         ,
@@ -115,7 +115,7 @@ function btc_payment(address, cost) {
         showCancelButton: false,
         focusConfirm: false,
         padding: "28px",
-        width: 331,
+        width: 420,
         background: '#1F2346',
     });
 }

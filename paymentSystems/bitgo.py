@@ -32,22 +32,22 @@ class Bitgo:
 
 
         def create_address(self):
-            address_data = self.bitgo._send_api_request(self.bitgo, "POST", f"/{self.coin}/wallet/{self.id}/address").json()
+            address_data = self.bitgo._send_api_request("POST", f"/{self.coin}/wallet/{self.id}/address").json()
             return self.Address(address_data['id'], address_data['address'], 0, self.bitgo, self)
 
         def get_address(self, address):
-            address_data = self.bitgo._send_api_request(self.bitgo, "GET", f"/{self.coin}/wallet/{self.id}/address/{address}").json()
+            address_data = self.bitgo._send_api_request("GET", f"/{self.coin}/wallet/{self.id}/address/{address}").json()
             return self.Address(address_data['id'], address_data['address'], address_data['dalance']['balance'], self.bitgo, self)
 
         def adresses(self):
-            adresses = self.bitgo._send_api_request(self.bitgo, "GET", f"/{self.coin}/wallet/{self.id}/addresses").json()
+            adresses = self.bitgo._send_api_request("GET", f"/{self.coin}/wallet/{self.id}/addresses").json()
             return [self.Address(address_data['id'], address_data['address'], address_data['dalance']['balance'], self.bitgo, self) for address_data in adresses['addresses']]
 
         def add_wallet_webhook(self):
-            return self.bitgo._send_api_request(self.bitgo, "POST", f"/{self.coin}/wallet/{self.id}/webhooks", json={"type": "transaction", "url": f"{Site.objects.get()}/payment/bitcoin/webhook"}).json()
+            return self.bitgo._send_api_request("POST", f"/{self.coin}/wallet/{self.id}/webhooks", json={"type": "transaction", "url": f"{Site.objects.get()}/payment/bitcoin/webhook"}).json()
 
         def list_wallet_webhook(self):
-            return self.bitgo._send_api_request(self.bitgo, "GET", f"/{self.coin}/wallet/{self.id}/webhooks").json()['webhooks']
+            return self.bitgo._send_api_request("GET", f"/{self.coin}/wallet/{self.id}/webhooks").json()['webhooks']
 
         class Address:
             def __init__(self, id, address, balance, bitgo, wallet):

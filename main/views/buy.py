@@ -13,17 +13,27 @@ def buy(request, cheat):
     key_price = Price.objects.get(cheat__id=cheat, duration=int(request.GET.get('duration')))
     price = key_price.price*int(request.GET.get('quantity')) #Final price
 
-    method = request.GET.get('payment')
+    method = request.GET.get('method')
 
     purchase = Purchase(user = request.user, date=datetime.now(), payment_method=method, status="Pending")
     purchase.save()
     if method == "Bitcoin":
         bitgo = Bitgo()
         wallet = bitgo.get_wallet()
-
         address = wallet.create_address()
 
+        payment = Payment(purchase=purchase)
+        payment.save()
+
         purchase.payment.bitcoin = BitcoinPayment(address=address)
-        purchase.payment.bitcoin.save()
+
+        bitcoin = BitcoinPayment(address=address)
+        bitcoin.save()
+
+        payment.bitcoin = bitcoin
+        payment.save()
+        purchase.save()
+
+
 
     return redirect(f'/purchases/?open={purchase.id}')

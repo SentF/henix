@@ -33,7 +33,7 @@
                         {% endif %}
                         {% if purchase.status == "Pending" %}
                         <button class="btn_pay" method="{{ purchase.payment_method }}"
-                            {% if purchase.payment_method == "Bitcoin" %} address="{{ purchase.payment.bitcoin.address }}" cost="{{ purchase.payment.cost }}" {% endif %}
+                            {% if purchase.payment_method == "bitcoin" %} address="{{ purchase.payment.bitcoin.address }}" cost="{{ purchase.payment.cost }}" {% endif %}
                         >
                         </button>
                         {% endif %}

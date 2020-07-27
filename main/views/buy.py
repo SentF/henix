@@ -13,7 +13,7 @@ def buy(request, cheat):
     key_price = Price.objects.get(cheat__id=cheat, duration=int(request.GET.get('duration')))
     price = key_price.price*int(request.GET.get('quantity')) #Final price
 
-    method = request.GET.get('method')
+    method = request.GET.get('payment')
 
     purchase = Purchase(user = request.user, date=datetime.now(), payment_method=method, status="Pending")
     purchase.save()

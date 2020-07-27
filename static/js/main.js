@@ -97,31 +97,25 @@ $('.tooltip-show.slow').tooltip({delay: {"show": 0, "hide": 3000}, html: true});
 
 function btc_payment(address, cost) {
     Swal.fire({
-        html: `<p class="title_swal">Processing...</p>
-            <p style="margin-bottom: 0" class="text_swal">Payment Data:</p>
-            <div class="payment_methods"> 
-                <div>
-                    <input type="radio" checked id="bitcoin" value="bitcoin" name="payment_methods"/>
-                    <label  class="payment_method bitcoin_method" for="bitcoin" ></label>
-                </div>
-                <div>
-                    <input type="radio" id="paypal" value="paypal" name="payment_methods" />
-                    <label class="payment_method paypal_method" for="paypal" ></label>
-                </div>
-                <div>
-                    <input type="radio" id="credit_card" value="credit_card" name="payment_methods" />
-                    <label style="" class="payment_method credit_card_method" for="credit_card" ></label>
-                </div>
-            </div>
-            <input type="email" class="form-control input_swal btn-block" id="email" placeholder="name@example.com">
-            <button onclick="pay()" class="confirm_swal btn-block disabled" id="pay">Pay</button>`
+        html: `
+            <p class="title_swal">Thank you for buying</p>
+            <p class="text_swal"> Get the key to activate the hack.</p>
+            <div class="fake_input btn-block">
+                <text style="text-align: left; font-size: 16px; margin-left: 8px" class="blue_text">${address}</text>
+                <button onclick="copy('${keys[key]}')" class="copy_icon"></button>
+            </div>     
+            <div class="fake_input btn-block">
+                <text style="text-align: left; font-size: 16px; margin-left: 8px" class="blue_text">${cost}</text>
+                <button onclick="copy('${keys[key]}')" class="copy_icon"></button>
+            </div>     
+            <button onclick="Swal.close()" class="confirm_swal btn-block">Close</button>`
         ,
         showConfirmButton: false,
         showCloseButton: false,
         showCancelButton: false,
         focusConfirm: false,
         padding: "28px",
-        width: 424,
+        width: 331,
         background: '#1F2346',
     });
 }

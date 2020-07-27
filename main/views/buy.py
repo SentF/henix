@@ -7,7 +7,7 @@ from paymentSystems.models import *
 
 def buy(request, cheat):
     keys = Key.objects.filter(cheat__id=cheat, purchase=None, duration=int(request.GET.get('duration')))
-    if len(keys) <= int(request.GET.get('quantity')):
+    if len(keys) < int(request.GET.get('quantity')):
         return redirect(f'/cheats/{cheat}/?error=OutOfStock')
 
 

@@ -27,9 +27,9 @@ def buy(request, cheat):
         payment = Payment(purchase=purchase)
         payment.save()
 
-        purchase.payment.bitcoin = BitcoinPayment(address=address)
+        purchase.payment.bitcoin = BitcoinPayment(address=address.adress)
 
-        bitcoin = BitcoinPayment(address=address)
+        bitcoin = BitcoinPayment(address=address.adress)
         bitcoin.save()
 
         payment.bitcoin = bitcoin

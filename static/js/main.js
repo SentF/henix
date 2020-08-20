@@ -98,8 +98,7 @@ $('.tooltip-show.slow').tooltip({delay: {"show": 0, "hide": 3000}, html: true});
 function btc_payment(address, cost) {
     Swal.fire({
         html: `
-            <p class="title_swal">Thank you for buying</p>
-            <p class="text_swal"> Get the key to activate the hack.</p>
+            <p class="title_swal">Sent btc to address:</p>
             <div class="fake_input btn-block">
                 <text style="text-align: left; font-size: 16px; margin-left: 8px" class="blue_text">${address}</text>
                 <button onclick="copy('${address}')" class="copy_icon"></button>

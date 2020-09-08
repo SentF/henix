@@ -1,4 +1,4 @@
-# Henix
+
 ## To install
 - Install requirements from `requirements.txt`
 - Set env variables (HOST, DS_BOT_TOKEN)
